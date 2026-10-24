@@ -92,12 +92,12 @@ AlgoInvar/
 │   │   ├── symmetry_mitigation.py # Molecular H2 VQE symmetry-based post-selection
 │   │   └── benchmarking_comparison.py # Comparative resource-overhead taxonomy
 │   ├── analysis/                # Vector figure generation
-│   │   └── plot_noise_calibration.py # Produces publication Figures 4, 5, and 6
+│   │   └── plot_noise_calibration.py # Generates noise sweep and mitigation vector plots
 │   └── results/                 # Raw experimental outputs, JSON records & multi-tab Excel workbooks
 │       ├── error_injection/     # JSON & XLSX records for all 4 noise channels
 │       ├── symmetry_mitigation/ # JSON & XLSX records for molecular H2 post-selection
 │       ├── device_calibration/  # Cross-protocol taxonomy comparisons and LaTeX tables
-│       └── figures/             # High-resolution PNG and PDF exports of Figures 4-6
+│       └── figures/             # High-resolution PNG and PDF vector plot exports
 │
 ├── results_kingston/            # Empirical Datasets: ibm_kingston (156Q Heron r2)
 │   ├── hardware_run/            # Live QPU execution outputs (Job ID: dbb4hehgv2cc73e7oq40)
@@ -278,7 +278,7 @@ python run_all_experiments.py
 # Optional targeted flags:
 python run_all_experiments.py --noise-sweeps   # Run 4-channel noise sweeps only
 python run_all_experiments.py --mitigation     # Run molecular H2 VQE post-selection only
-python run_all_experiments.py --plots          # Regenerate publication Figures 4, 5, and 6 only
+python run_all_experiments.py --plots
 ```
 
 ### 4. Running the Unit Test Suite
