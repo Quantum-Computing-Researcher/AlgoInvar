@@ -69,6 +69,18 @@ AlgoInvar/
 │       ├── parity_metrics.py    # Dichotomy expectation & multi-layer parity tracking
 │       └── uncertainty.py       # Binomial and multinomial standard error propagation
 │
+├── cpp/                         # High-Performance C++ Core Engine (Optional native accelerator)
+│   ├── README.md                # C++ architecture, hardware intrinsics & benchmark guide
+│   ├── CMakeLists.txt           # Standard CMake build configuration (C++17/20)
+│   ├── setup.py                 # Setuptools builder for pybind11 Python extension
+│   ├── include/
+│   │   └── algoinvar_fast.hpp   # Header definitions: FockMetrics, ParityMetrics & prototypes
+│   ├── src/
+│   │   ├── algoinvar_fast.cpp   # Bitwise evaluation engine & moment accumulators (CPU POPCNT)
+│   │   └── main.cpp             # Standalone benchmark executable for large-scale payloads
+│   └── bindings/
+│       └── pybind_module.cpp    # pybind11 module bindings for algoinvar_core
+│
 ├── algoinvar_2ndexp/            # Controlled Simulation Experiments & Mitigation Suite
 │   ├── README.md                # Sub-directory guide for simulation suite
 │   ├── run_all_experiments.py   # Unified CLI runner for noise sweeps, mitigation & plots
@@ -266,6 +278,15 @@ To verify algebraic commutation relations and invariant evaluators:
 ```bash
 python -m unittest tests/test_invariants.py
 ```
+
+### 5. High-Performance C++ Core Execution (Optional)
+For high-shot-volume workloads and utility-scale register parsing, a native C++17 acceleration module with hardware POPCNT intrinsics is provided in `cpp/`:
+```bash
+cd cpp
+g++ -O3 -std=c++17 src/main.cpp src/algoinvar_fast.cpp -o algoinvar_bench
+./algoinvar_bench
+```
+See [`cpp/README.md`](cpp/README.md) for full architectural documentation, CMake instructions, and `pybind11` Python extension builds.
 
 ---
 

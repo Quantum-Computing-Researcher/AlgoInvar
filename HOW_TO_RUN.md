@@ -29,6 +29,13 @@ pro/                                 <-- REPOSITORY ROOT
 │   ├── hardware/                    # Transpilation & IBM Runtime primitive integration
 │   └── metrics/                     # Exact statistical estimators & sub-Poissonian variance
 │
+├── cpp/                         <-- HIGH-PERFORMANCE C++ CORE (Hardware POPCNT & Bitwise Engine)
+│   ├── CMakeLists.txt           # Standard CMake build configuration (C++17/20)
+│   ├── setup.py                 # Setuptools builder for pybind11 Python extension
+│   ├── include/                 # Header declarations: FockMetrics & ParityMetrics
+│   ├── src/                     # Low-latency bitwise evaluation engine (CPU POPCNT)
+│   └── bindings/                # pybind11 module bindings for algoinvar_core
+│
 ├── algoinvar_2ndexp/                <-- CONTROLLED NOISE SIMULATION EXPERIMENTS
 │   ├── run_all_experiments.py       # Master script running all 5 simulation sweeps
 │   ├── analysis/                    # Statistical aggregation & table generation
