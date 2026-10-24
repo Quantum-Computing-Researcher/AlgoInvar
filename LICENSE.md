@@ -6,7 +6,7 @@ The AlgoInvar framework, including its source code, circuit designs, mathematica
 invariants, protocols, algorithms, and documentation, is dual-licensed:
 
 --------------------------------------------------------------------------------
-1. NON-COMMERCIAL / ACADEMIC RESEARCH LICENSE
+1. NON-COMMERCIAL / ACADEMIC RESEARCH LICENSE (PolyForm Noncommercial 1.0.0)
 --------------------------------------------------------------------------------
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -22,10 +22,11 @@ subject to the following conditions:
 --------------------------------------------------------------------------------
 2. COMMERCIAL HARDWARE & PROPRIETARY IMPLEMENTATION LICENSE
 --------------------------------------------------------------------------------
+This section constitutes the formal Commercial Hardware & Proprietary Implementation License.
 ANY commercial use, commercial distribution, inclusion into proprietary quantum
 hardware, quantum processor calibration stacks, cloud quantum benchmarking platforms,
 or Software-as-a-Service (SaaS) offerings requires an executed commercial license and royalty
-agreement with the Author.
+agreement with the Author under this License.
 
 Explicit commercial uses requiring a license include, but are not limited to:
 a. Deployment on commercial quantum cloud platforms (e.g., IBM Quantum, AWS Braket,

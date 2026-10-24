@@ -33,7 +33,7 @@ As quantum computing transitions from laboratory experiments to commercial enter
 ### 5. Intellectual Property & Commercial Licensing
 AlgoInvar is distributed under a clear dual-licensing structure:
 * **Academic & Non-Commercial Research:** Freely accessible and royalty-free under the **PolyForm Noncommercial License 1.0.0** for educational, academic, and scientific evaluations.
-* **Commercial Hardware & Cloud Deployments:** Enterprise integration into commercial quantum computer operating stacks, cloud benchmarking dashboards, automated calibration firmware, or proprietary SaaS platforms is governed by formal commercial licensing terms. Inquiries: `rarqam14@gmail.com`.
+* **Commercial Hardware & Cloud Deployments:** Governed by the **Commercial Hardware & Proprietary Implementation License**. Enterprise integration into commercial quantum computer operating stacks, cloud benchmarking dashboards, automated calibration firmware, or proprietary SaaS platforms requires an executed commercial license and royalty agreement with the Author. Inquiries: `rarqam14@gmail.com`.
 
 ---
 
@@ -317,7 +317,7 @@ If you find AlgoInvar useful in your research or commercial evaluation, please c
 
 ### Licensing Terms
 * **Academic & Scientific Research:** Distributed under the [PolyForm Noncommercial License 1.0.0](LICENSE.md), granting free, royalty-free usage for educational, non-commercial scientific research.
-* **Commercial Integration:** Commercial deployments, vendor cloud benchmarking services, and proprietary quantum middleware integration require a formal commercial licensing agreement. For commercial inquiries, contact:
+* **Commercial Integration:** Governed by the **[Commercial Hardware & Proprietary Implementation License](LICENSE.md)**. Commercial deployments, vendor cloud benchmarking services, and proprietary quantum middleware integration require a formal commercial licensing and royalty agreement. For commercial inquiries, contact:
   * **Author:** Rehan Arqam
   * **Email:** `rarqam14@gmail.com`
   * **Phone:** `+92 324 7707711`
