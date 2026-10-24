@@ -3,30 +3,34 @@
 Copyright (c) 2026 Rehan Arqam. All rights reserved.
 
 The AlgoInvar framework, including its source code, circuit designs, mathematical
-invariants, protocols, algorithms, and documentation, is dual-licensed:
+invariants, protocols, algorithms, datasets, and documentation, is dual-licensed:
 
 --------------------------------------------------------------------------------
-1. NON-COMMERCIAL / ACADEMIC RESEARCH LICENSE (PolyForm Noncommercial 1.0.0)
+1. NON-COMMERCIAL / ACADEMIC RESEARCH LICENSE:
+   Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
 --------------------------------------------------------------------------------
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, and distribute copies of the Software,
-subject to the following conditions:
+Under this license, you are free to:
+- **Share:** Copy and redistribute the material in any medium or format.
+- **Adapt:** Remix, transform, and build upon the material for personal, educational,
+  academic, and non-commercial scientific research.
 
-- **Noncommercial Purpose Only:** You may run, modify, and distribute this Software
-  solely for personal, educational, academic, and non-commercial scientific research.
-- **Attribution:** The above copyright notice and this permission notice must be
-  included in all copies or substantial portions of the Software.
+Under the following terms:
+- **Attribution:** You must give appropriate credit, provide a link to the license,
+  and indicate if changes were made. You may do so in any reasonable manner, but
+  not in any way that suggests the licensor endorses you or your use.
+- **NonCommercial:** You may NOT use the material for commercial purposes or sale.
+- **Official License Deed:** https://creativecommons.org/licenses/by-nc/4.0/
 
 --------------------------------------------------------------------------------
 2. COMMERCIAL HARDWARE & PROPRIETARY IMPLEMENTATION LICENSE
 --------------------------------------------------------------------------------
-This section constitutes the formal Commercial Hardware & Proprietary Implementation License.
+License Name: Commercial Hardware & Proprietary Implementation License
+Licensor / Copyright Holder: Rehan Arqam (rarqam14@gmail.com)
+
 ANY commercial use, commercial distribution, inclusion into proprietary quantum
 hardware, quantum processor calibration stacks, cloud quantum benchmarking platforms,
-or Software-as-a-Service (SaaS) offerings requires an executed commercial license and royalty
-agreement with the Author under this License.
+or Software-as-a-Service (SaaS) offerings is governed by this License and requires
+an executed commercial licensing agreement and royalty terms with the Author.
 
 Explicit commercial uses requiring a license include, but are not limited to:
 a. Deployment on commercial quantum cloud platforms (e.g., IBM Quantum, AWS Braket,

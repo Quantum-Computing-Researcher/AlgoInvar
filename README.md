@@ -1,6 +1,6 @@
 # AlgoInvar: Simulation-Free Benchmarking of Quantum Hardware via Exact Algorithmic Invariants in VQE and QAOA
 
-[<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.23627340.svg" height="20" alt="DOI: 10.5281/zenodo.23627340">](https://doi.org/10.5281/zenodo.23627340) [<img src="https://img.shields.io/badge/Guide-How%20To%20Run-teal.svg" height="20" alt="Guide: How To Run">](HOW_TO_RUN.md) [<img src="https://img.shields.io/badge/License-PolyForm%20Noncommercial-blue.svg" height="20" alt="License: PolyForm Noncommercial 1.0.0">](LICENSE.md) [<img src="https://img.shields.io/badge/Commercial-Royalty%20Agreement-orange.svg" height="20" alt="Commercial License">](LICENSE.md) [<img src="https://img.shields.io/badge/Python-3.9+-green.svg" height="20" alt="Python 3.9+">](https://www.python.org/downloads/) [<img src="https://img.shields.io/badge/Qiskit-1.0+-613394.svg" height="20" alt="Qiskit 1.0+">](https://qiskit.org/)
+[<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.23627340.svg" height="20" alt="DOI: 10.5281/zenodo.23627340">](https://doi.org/10.5281/zenodo.23627340) [<img src="https://img.shields.io/badge/Guide-How%20To%20Run-teal.svg" height="20" alt="Guide: How To Run">](HOW_TO_RUN.md) [<img src="https://img.shields.io/badge/License-CC%20BY--NC%204.0-blue.svg" height="20" alt="License: CC BY-NC 4.0">](LICENSE.md) [<img src="https://img.shields.io/badge/Commercial-Proprietary%20License-orange.svg" height="20" alt="Commercial Hardware & Proprietary Implementation License">](LICENSE.md) [<img src="https://img.shields.io/badge/Python-3.9+-green.svg" height="20" alt="Python 3.9+">](https://www.python.org/downloads/) [<img src="https://img.shields.io/badge/Qiskit-1.0+-613394.svg" height="20" alt="Qiskit 1.0+">](https://qiskit.org/)
 
 > 📖 **Quick Start:** For step-by-step installation, Python API usage, IBM hardware execution, and Experiment 2 reproduction guides, see [**HOW_TO_RUN.md**](HOW_TO_RUN.md).
 
@@ -32,8 +32,8 @@ As quantum computing transitions from laboratory experiments to commercial enter
 
 ### 5. Intellectual Property & Commercial Licensing
 AlgoInvar is distributed under a clear dual-licensing structure:
-* **Academic & Non-Commercial Research:** Freely accessible and royalty-free under the **PolyForm Noncommercial License 1.0.0** for educational, academic, and scientific evaluations.
-* **Commercial Hardware & Cloud Deployments:** Governed by the **Commercial Hardware & Proprietary Implementation License**. Enterprise integration into commercial quantum computer operating stacks, cloud benchmarking dashboards, automated calibration firmware, or proprietary SaaS platforms requires an executed commercial license and royalty agreement with the Author. Inquiries: `rarqam14@gmail.com`.
+* **Academic & Non-Commercial Research:** Freely accessible and royalty-free under the **Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)** license for educational, academic, and scientific evaluations.
+* **Commercial Hardware & Enterprise Deployments:** Governed by the **Commercial Hardware & Proprietary Implementation License**. Enterprise integration into commercial quantum computer operating stacks, cloud benchmarking dashboards, automated calibration firmware, or proprietary SaaS platforms requires an executed commercial license and royalty agreement with the Author. Inquiries: `rarqam14@gmail.com`.
 
 ---
 
@@ -45,7 +45,7 @@ The repository is organized into distinct modules separating hardware execution,
 AlgoInvar/
 ├── README.md                    # Comprehensive master repository documentation
 ├── HOW_TO_RUN.md                # Step-by-step execution guide for all workflows & Exp 2
-├── LICENSE.md                   # Dual-licensing terms (PolyForm Noncommercial 1.0.0)
+├── LICENSE.md                   # Dual-licensing terms (CC BY-NC 4.0 & Commercial License)
 ├── pyproject.toml               # Python project configuration and package metadata
 ├── requirements.txt             # Python dependencies (Qiskit 1.0+, NumPy, Pandas, Matplotlib)
 │
@@ -316,7 +316,7 @@ If you find AlgoInvar useful in your research or commercial evaluation, please c
 ```
 
 ### Licensing Terms
-* **Academic & Scientific Research:** Distributed under the [PolyForm Noncommercial License 1.0.0](LICENSE.md), granting free, royalty-free usage for educational, non-commercial scientific research.
+* **Academic & Scientific Research:** Distributed under the **[Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](LICENSE.md)** license, granting free, royalty-free usage for educational, non-commercial scientific research.
 * **Commercial Integration:** Governed by the **[Commercial Hardware & Proprietary Implementation License](LICENSE.md)**. Commercial deployments, vendor cloud benchmarking services, and proprietary quantum middleware integration require a formal commercial licensing and royalty agreement. For commercial inquiries, contact:
   * **Author:** Rehan Arqam
   * **Email:** `rarqam14@gmail.com`
