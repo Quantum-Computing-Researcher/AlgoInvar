@@ -211,7 +211,7 @@ algoinvar_2ndexp/
 ├── circuits/
 │   ├── qaoa_maxcut.py           # QAOA circuits & retrace echo sequences (p=1, 2)
 │   └── vqe_givens.py            # Givens-rotation VQE circuits & H2 Hamiltonian
-├── figures/                     # Final exported figures copied for publication
+├── figures/                     # Exported vector figures (PDF and PNG)
 ├── results/
 │   ├── device_calibration/      # Protocol comparison table (LaTeX)
 │   ├── error_injection/         # Sweep datasets (JSON & Excel) for AD, PD, Coherent, SPAM
@@ -290,7 +290,7 @@ Generates the comparative analysis table contrasting AlgoInvar against Clifford 
 python algoinvar_2ndexp/run_all_experiments.py --comparison
 ```
 * **Outputs Generated:**
-  - `algoinvar_2ndexp/results/device_calibration/table_method_comparison.tex` (Ready-to-embed LaTeX table)
+  - `algoinvar_2ndexp/results/device_calibration/table_method_comparison.tex`
   - `algoinvar_2ndexp/results/device_calibration/benchmarking_comparison.xlsx`
 
 ##### Sub-Experiment 2D: Regenerating Publication Figures (`--plots`)
