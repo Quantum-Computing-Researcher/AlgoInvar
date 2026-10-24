@@ -288,4 +288,5 @@ If you find AlgoInvar useful in your research or commercial evaluation, please c
 * **Commercial Integration:** Commercial deployments, vendor cloud benchmarking services, and proprietary quantum middleware integration require a formal commercial licensing agreement. For commercial inquiries, contact:
   * **Author:** Rehan Arqam
   * **Email:** `rarqam14@gmail.com`
+  * **Phone:** `+92 324 7707711`
   * **Affiliation:** Independent Researcher, Islamabad, 44000, Pakistan.
