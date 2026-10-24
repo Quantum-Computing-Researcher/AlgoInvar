@@ -69,7 +69,7 @@ AlgoInvar/
 │       ├── parity_metrics.py    # Dichotomy expectation & multi-layer parity tracking
 │       └── uncertainty.py       # Binomial and multinomial standard error propagation
 │
-├── cpp/                         # High-Performance C++ Core Engine (Optional native accelerator)
+├── cpp/                         # High-Performance C++ Core Engine (Native bitwise accelerator)
 │   ├── README.md                # C++ architecture, hardware intrinsics & benchmark guide
 │   ├── CMakeLists.txt           # Standard CMake build configuration (C++17/20)
 │   ├── setup.py                 # Setuptools builder for pybind11 Python extension
@@ -235,7 +235,7 @@ Evaluates active symmetry post-selection for the electronic Hamiltonian of molec
 
 ## ⚡ AlgoInvar High-Performance C++ Core Engine
 
-The `cpp/` directory provides an optional, hardware-accelerated C++17 execution engine designed for high-throughput, low-latency quantum measurement analysis. It provides zero-copy bitstring parsing and CPU-intrinsic metric evaluations for high-shot-volume quantum cloud environments and utility-scale register topologies (e.g., 156-qubit IBM Heron processors).
+The `cpp/` directory provides a hardware-accelerated C++17 execution engine designed for high-throughput, low-latency quantum measurement analysis. It provides zero-copy bitstring parsing and CPU-intrinsic metric evaluations for high-shot-volume quantum cloud environments and utility-scale register topologies (e.g., 156-qubit IBM Heron processors).
 
 By bypassing Python interpreter memory allocations and the Global Interpreter Lock (GIL), the C++ engine evaluates measurement distributions using single-cycle hardware population count instructions (`POPCNT` via `__builtin_popcountll` on GCC/Clang and `__popcnt64` on MSVC). This delivers up to **$115\times$ faster execution speeds** on large-scale bitstring arrays (evaluating 100,000 shots of 156-qubit registers in under $1.9\text{ ms}$) with a negligible memory footprint. Built with modern C++17 standards and cache-conscious loop unrolling, the engine features both a standalone benchmark executable and native Python bindings via `pybind11` (`algoinvar_core`), providing seamless drop-in acceleration for high-throughput quantum cloud workflows. See [`cpp/README.md`](cpp/README.md) for full architectural documentation and CMake configurations.
 
@@ -287,7 +287,7 @@ To verify algebraic commutation relations and invariant evaluators:
 python -m unittest tests/test_invariants.py
 ```
 
-### 5. High-Performance C++ Core Execution (Optional)
+### 5. High-Performance C++ Core Execution
 For high-shot-volume workloads and utility-scale register parsing, a native C++17 acceleration module with hardware POPCNT intrinsics is provided in `cpp/`:
 ```bash
 cd cpp

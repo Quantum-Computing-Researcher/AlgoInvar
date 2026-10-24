@@ -1,6 +1,6 @@
 # AlgoInvar High-Performance C++ Core Engine
 
-The `cpp/` directory provides an optional, hardware-accelerated **C++17 execution engine** designed for high-throughput, low-latency quantum measurement analysis. It provides zero-copy bitstring parsing and CPU-intrinsic metric evaluations for high-shot-volume quantum cloud environments and utility-scale register topologies (e.g., 156-qubit IBM Heron processors).
+The `cpp/` directory provides a hardware-accelerated **C++17 execution engine** designed for high-throughput, low-latency quantum measurement analysis. It provides zero-copy bitstring parsing and CPU-intrinsic metric evaluations for high-shot-volume quantum cloud environments and utility-scale register topologies (e.g., 156-qubit IBM Heron processors).
 
 ---
 
