@@ -1,0 +1,16 @@
+\begin{table*}[t]
+\caption{\label{tab:method_comparison}\textbf{Comparative Methodology and Quantitative Benchmarking Taxonomy.} Architectural and resource-overhead comparison between AlgoInvar, ancilla-assisted symmetry verification, and standard hardware benchmarking protocols.}
+\resizebox{\textwidth}{!}{%
+\begin{ruledtabular}
+\begin{tabular}{p{3.5cm} c c c c p{4.2cm} c}
+\textbf{Protocol} & \textbf{Ancillas} & \textbf{Extra 2Q Gates} & \textbf{Depth Factor} & \textbf{Classical Cost} & \textbf{Diagnosed Error Types} & \textbf{Mitigation} \\
+\hline
+Clifford RB & 0 & 0 & 1.0x & O(1) & Average gate infidelity (EPC) & No \\
+Cross-Entropy Benchmarking (XEB) & 0 & 0 & 1.0x & O(2^n) & Heavy output probability fidelity & No \\
+Quantum State Tomography (QST) & 0 & 0 & 1.0x & O(4^n) & Full density matrix & No \\
+Ancilla-Assisted Symmetry Verification & 1 & 2n CNOTs & 1.6x - 2.5x & O(1) & Parity violation flag & Yes \\
+\textbf{AlgoInvar} & \bm{0} & \bm{0} & \bm{1.0x} & \bm{O(1)} & \textbf{Coherent drift, relaxation asymmetry, dephasing, SPAM} & \bm{Yes} \\
+\end{tabular}
+\end{ruledtabular}%
+}
+\end{table*}

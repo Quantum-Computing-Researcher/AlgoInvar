@@ -1,0 +1,170 @@
+[
+  {
+    "lambda": 0.0,
+    "vqe_var_N": 0.0,
+    "vqe_leakage": 0.0,
+    "vqe_mean_N": 2.0,
+    "qaoa_parity_p1": 1.0,
+    "qaoa_parity_p2": 1.0
+  },
+  {
+    "lambda": 0.0125,
+    "vqe_var_N": 0.009519,
+    "vqe_leakage": 0.0023800000000000487,
+    "vqe_mean_N": 2.001,
+    "qaoa_parity_p1": 0.90304,
+    "qaoa_parity_p2": 0.83988
+  },
+  {
+    "lambda": 0.025,
+    "vqe_var_N": 0.015359686400000001,
+    "vqe_leakage": 0.0038399999999999546,
+    "vqe_mean_N": 2.00056,
+    "qaoa_parity_p1": 0.82164,
+    "qaoa_parity_p2": 0.70764
+  },
+  {
+    "lambda": 0.037500000000000006,
+    "vqe_var_N": 0.024716465599999998,
+    "vqe_leakage": 0.006179999999999963,
+    "vqe_mean_N": 2.00188,
+    "qaoa_parity_p1": 0.7428,
+    "qaoa_parity_p2": 0.5846
+  },
+  {
+    "lambda": 0.05,
+    "vqe_var_N": 0.0321553344,
+    "vqe_leakage": 0.008040000000000047,
+    "vqe_mean_N": 2.00216,
+    "qaoa_parity_p1": 0.66796,
+    "qaoa_parity_p2": 0.48644
+  },
+  {
+    "lambda": 0.0625,
+    "vqe_var_N": 0.0446276096,
+    "vqe_leakage": 0.011159999999999948,
+    "vqe_mean_N": 2.00352,
+    "qaoa_parity_p1": 0.59828,
+    "qaoa_parity_p2": 0.40144
+  },
+  {
+    "lambda": 0.07500000000000001,
+    "vqe_var_N": 0.0479100144,
+    "vqe_leakage": 0.01197999999999999,
+    "vqe_mean_N": 2.00316,
+    "qaoa_parity_p1": 0.53068,
+    "qaoa_parity_p2": 0.33368
+  },
+  {
+    "lambda": 0.08750000000000001,
+    "vqe_var_N": 0.0567777216,
+    "vqe_leakage": 0.01419999999999999,
+    "vqe_mean_N": 2.00472,
+    "qaoa_parity_p1": 0.47984,
+    "qaoa_parity_p2": 0.27952
+  },
+  {
+    "lambda": 0.1,
+    "vqe_var_N": 0.0652599296,
+    "vqe_leakage": 0.01632,
+    "vqe_mean_N": 2.00448,
+    "qaoa_parity_p1": 0.42964,
+    "qaoa_parity_p2": 0.23092
+  },
+  {
+    "lambda": 0.1125,
+    "vqe_var_N": 0.073175,
+    "vqe_leakage": 0.018299999999999983,
+    "vqe_mean_N": 2.005,
+    "qaoa_parity_p1": 0.3842,
+    "qaoa_parity_p2": 0.1884
+  },
+  {
+    "lambda": 0.125,
+    "vqe_var_N": 0.0860613376,
+    "vqe_leakage": 0.021519999999999984,
+    "vqe_mean_N": 2.00432,
+    "qaoa_parity_p1": 0.34404,
+    "qaoa_parity_p2": 0.1546
+  },
+  {
+    "lambda": 0.1375,
+    "vqe_var_N": 0.09243266559999999,
+    "vqe_leakage": 0.02312000000000003,
+    "vqe_mean_N": 2.0068799999999998,
+    "qaoa_parity_p1": 0.3044,
+    "qaoa_parity_p2": 0.12736
+  },
+  {
+    "lambda": 0.15000000000000002,
+    "vqe_var_N": 0.0966068224,
+    "vqe_leakage": 0.02415999999999996,
+    "vqe_mean_N": 2.00576,
+    "qaoa_parity_p1": 0.27408,
+    "qaoa_parity_p2": 0.1024
+  },
+  {
+    "lambda": 0.1625,
+    "vqe_var_N": 0.1056472816,
+    "vqe_leakage": 0.02642,
+    "vqe_mean_N": 2.00572,
+    "qaoa_parity_p1": 0.24468,
+    "qaoa_parity_p2": 0.08296
+  },
+  {
+    "lambda": 0.17500000000000002,
+    "vqe_var_N": 0.1163287664,
+    "vqe_leakage": 0.029100000000000015,
+    "vqe_mean_N": 2.00844,
+    "qaoa_parity_p1": 0.21704,
+    "qaoa_parity_p2": 0.07292
+  },
+  {
+    "lambda": 0.1875,
+    "vqe_var_N": 0.12104808960000002,
+    "vqe_leakage": 0.030279999999999974,
+    "vqe_mean_N": 2.00848,
+    "qaoa_parity_p1": 0.19376,
+    "qaoa_parity_p2": 0.05204
+  },
+  {
+    "lambda": 0.2,
+    "vqe_var_N": 0.1267023856,
+    "vqe_leakage": 0.03169999999999995,
+    "vqe_mean_N": 2.00988,
+    "qaoa_parity_p1": 0.1606,
+    "qaoa_parity_p2": 0.04944
+  },
+  {
+    "lambda": 0.21250000000000002,
+    "vqe_var_N": 0.1365523904,
+    "vqe_leakage": 0.03415999999999997,
+    "vqe_mean_N": 2.00936,
+    "qaoa_parity_p1": 0.14568,
+    "qaoa_parity_p2": 0.03356
+  },
+  {
+    "lambda": 0.225,
+    "vqe_var_N": 0.14233600000000002,
+    "vqe_leakage": 0.035599999999999965,
+    "vqe_mean_N": 2.008,
+    "qaoa_parity_p1": 0.13152,
+    "qaoa_parity_p2": 0.02728
+  },
+  {
+    "lambda": 0.23750000000000002,
+    "vqe_var_N": 0.1558983936,
+    "vqe_leakage": 0.039000000000000035,
+    "vqe_mean_N": 2.01008,
+    "qaoa_parity_p1": 0.11788,
+    "qaoa_parity_p2": 0.02172
+  },
+  {
+    "lambda": 0.25,
+    "vqe_var_N": 0.1583518576,
+    "vqe_leakage": 0.03961999999999999,
+    "vqe_mean_N": 2.01132,
+    "qaoa_parity_p1": 0.1026,
+    "qaoa_parity_p2": 0.01728
+  }
+]

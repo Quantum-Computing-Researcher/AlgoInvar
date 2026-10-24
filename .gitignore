@@ -1,0 +1,107 @@
+# ==============================================================================
+# AlgoInvar Git Ignore Configuration
+# ==============================================================================
+
+# --- Unpublished Manuscript & References (Local Only - Pre-arXiv) ---
+AlgoInvar_paper.tex
+references.bib
+paper/
+algoinvar/paper/
+*.bib
+
+# --- Python Bytecode and Caches ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# --- Virtual Environments ---
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+bin/
+include/
+lib/
+lib64/
+
+# --- Packaging, Builds, and Distribution ---
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# --- Testing, Coverage, and Profiling ---
+.pytest_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+htmlcov/
+
+# --- Jupyter and Interactive Notebooks ---
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+*.pytest_cache
+
+# --- Environment Variables, Secrets, and API Tokens ---
+.env
+.env.*
+!.env.example
+*.local
+
+# --- IDEs, Editors, and Tooling ---
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# --- Operating System Files ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# --- LaTeX Local Compilation Auxiliaries (Preserves .tex and .bib) ---
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.nav
+*.snm
+*.vrb

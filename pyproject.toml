@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "algoinvar"
+version = "0.1.0"
+authors = [
+    { name = "AlgoInvar Contributors" }
+]
+description = "Invariant-Anchored Benchmarking for Algorithmic State Preparation (VQE and QAOA)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "PolyForm Noncommercial 1.0.0 / Commercial" }
+dependencies = [
+    "qiskit>=1.0.0",
+    "qiskit-aer>=0.14.0",
+    "numpy>=1.23.0",
+    "scipy>=1.9.0",
+    "networkx>=2.8.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["algoinvar*"]

@@ -1,0 +1,62 @@
+[
+  {
+    "Protocol": "Clifford RB",
+    "Target Workload": "Synthetic Random Clifford",
+    "Auxiliary Ancillas": 0,
+    "Extra Entangling Gates": 0,
+    "Circuit Depth Overhead": "1.0x",
+    "Classical Simulation Cost": "O(1)",
+    "Scalability Horizon": "Moderate (~100 Qubits)",
+    "Diagnosed Noise Physics": "Average gate infidelity (EPC)",
+    "Active Mitigation": "No",
+    "Algorithmic Workload Fidelity": "Low"
+  },
+  {
+    "Protocol": "Cross-Entropy Benchmarking (XEB)",
+    "Target Workload": "Synthetic Pseudo-Random",
+    "Auxiliary Ancillas": 0,
+    "Extra Entangling Gates": 0,
+    "Circuit Depth Overhead": "1.0x",
+    "Classical Simulation Cost": "O(2^n)",
+    "Scalability Horizon": "Limited by simulation (n <= 50)",
+    "Diagnosed Noise Physics": "Heavy output probability fidelity",
+    "Active Mitigation": "No",
+    "Algorithmic Workload Fidelity": "Low"
+  },
+  {
+    "Protocol": "Quantum State Tomography (QST)",
+    "Target Workload": "Arbitrary State",
+    "Auxiliary Ancillas": 0,
+    "Extra Entangling Gates": 0,
+    "Circuit Depth Overhead": "1.0x",
+    "Classical Simulation Cost": "O(4^n)",
+    "Scalability Horizon": "Limited by tomography (n <= 8)",
+    "Diagnosed Noise Physics": "Full density matrix",
+    "Active Mitigation": "No",
+    "Algorithmic Workload Fidelity": "Complete"
+  },
+  {
+    "Protocol": "Ancilla-Assisted Symmetry Verification",
+    "Target Workload": "VQE Chemistry",
+    "Auxiliary Ancillas": 1,
+    "Extra Entangling Gates": "2n CNOTs",
+    "Circuit Depth Overhead": "1.6x - 2.5x",
+    "Classical Simulation Cost": "O(1)",
+    "Scalability Horizon": "Constrained by routing & cross-talk",
+    "Diagnosed Noise Physics": "Parity violation flag",
+    "Active Mitigation": "Yes",
+    "Algorithmic Workload Fidelity": "Moderate"
+  },
+  {
+    "Protocol": "AlgoInvar",
+    "Target Workload": "VQE & QAOA",
+    "Auxiliary Ancillas": 0,
+    "Extra Entangling Gates": 0,
+    "Circuit Depth Overhead": "1.0x",
+    "Classical Simulation Cost": "O(1)",
+    "Scalability Horizon": "Arbitrary width n (Analytical reference)",
+    "Diagnosed Noise Physics": "Coherent drift, relaxation asymmetry, dephasing, SPAM",
+    "Active Mitigation": "Yes",
+    "Algorithmic Workload Fidelity": "Exact"
+  }
+]

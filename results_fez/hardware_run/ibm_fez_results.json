@@ -1,0 +1,194 @@
+{
+  "timestamp": "2026-10-19 21:46:58",
+  "backend": "ibm_fez",
+  "mode": "hardware_run",
+  "num_qubits": 4,
+  "shots_per_circuit": 8192,
+  "simulations": {
+    "noiseless": {
+      "vqe_particle_l2": {
+        "circuit": "vqe_particle_l2",
+        "shots": 8192,
+        "mean_N": 2.0,
+        "var_N": 0.0,
+        "leakage": 0.0,
+        "ideal_N": 2.0,
+        "ideal_var": 0.0,
+        "ideal_leakage": 0.0,
+        "passed": true
+      },
+      "vqe_retrace": {
+        "circuit": "vqe_retrace",
+        "shots": 8192,
+        "return_fidelity": 1.0,
+        "ideal_fidelity": 1.0,
+        "passed": true
+      },
+      "qaoa_parity_p1": {
+        "circuit": "qaoa_parity_p1",
+        "shots": 8192,
+        "global_parity": 1.0,
+        "ideal_parity": 1.0,
+        "passed": true
+      },
+      "qaoa_parity_p2": {
+        "circuit": "qaoa_parity_p2",
+        "shots": 8192,
+        "global_parity": 1.0,
+        "ideal_parity": 1.0,
+        "passed": true
+      },
+      "qaoa_retrace_p2": {
+        "circuit": "qaoa_retrace_p2",
+        "shots": 8192,
+        "retrace_fidelity": 1.0,
+        "ideal_fidelity": 1.0,
+        "passed": true
+      }
+    }
+  },
+  "hardware": {
+    "job_id": "dbb4ja9gv2cc73e7oue0",
+    "backend": "ibm_fez",
+    "chain": [
+      109,
+      110,
+      111,
+      98
+    ],
+    "qpu_seconds": 13.0,
+    "metrics": {
+      "vqe_particle_l2": {
+        "circuit": "vqe_particle_l2",
+        "shots": 8192,
+        "mean_N": 1.9403076171875,
+        "var_N": 0.16159795224666595,
+        "leakage": 0.1160888671875,
+        "ideal_N": 2.0,
+        "ideal_var": 0.0,
+        "ideal_leakage": 0.0,
+        "passed": false
+      },
+      "vqe_retrace": {
+        "circuit": "vqe_retrace",
+        "shots": 8192,
+        "return_fidelity": 0.80126953125,
+        "ideal_fidelity": 1.0,
+        "passed": true
+      },
+      "qaoa_parity_p1": {
+        "circuit": "qaoa_parity_p1",
+        "shots": 8192,
+        "global_parity": 0.78466796875,
+        "ideal_parity": 1.0,
+        "passed": true
+      },
+      "qaoa_parity_p2": {
+        "circuit": "qaoa_parity_p2",
+        "shots": 8192,
+        "global_parity": 0.68603515625,
+        "ideal_parity": 1.0,
+        "passed": true
+      },
+      "qaoa_retrace_p2": {
+        "circuit": "qaoa_retrace_p2",
+        "shots": 8192,
+        "retrace_fidelity": 0.684814453125,
+        "ideal_fidelity": 1.0,
+        "passed": true
+      }
+    },
+    "raw_counts": [
+      {
+        "0010": 58,
+        "0011": 657,
+        "1001": 3353,
+        "0101": 1162,
+        "1100": 1777,
+        "0001": 223,
+        "0100": 157,
+        "0110": 259,
+        "0000": 87,
+        "1101": 79,
+        "1000": 175,
+        "1111": 47,
+        "1010": 33,
+        "1110": 36,
+        "1011": 51,
+        "0111": 38
+      },
+      {
+        "0010": 337,
+        "0011": 6564,
+        "0001": 259,
+        "0111": 176,
+        "0101": 120,
+        "0110": 127,
+        "1001": 57,
+        "1010": 74,
+        "0000": 129,
+        "1101": 29,
+        "1111": 71,
+        "1011": 63,
+        "1000": 36,
+        "1110": 30,
+        "1100": 30,
+        "0100": 90
+      },
+      {
+        "0000": 4059,
+        "1001": 455,
+        "1000": 169,
+        "0100": 148,
+        "0011": 458,
+        "1010": 492,
+        "0110": 424,
+        "1100": 549,
+        "0101": 446,
+        "1011": 68,
+        "1111": 427,
+        "0001": 165,
+        "1101": 62,
+        "0010": 146,
+        "0111": 66,
+        "1110": 58
+      },
+      {
+        "1001": 486,
+        "1010": 1320,
+        "0011": 516,
+        "1111": 357,
+        "0101": 1300,
+        "0000": 2085,
+        "1110": 154,
+        "1100": 415,
+        "1101": 147,
+        "0110": 427,
+        "0100": 195,
+        "1000": 189,
+        "0001": 182,
+        "0010": 166,
+        "0111": 127,
+        "1011": 126
+      },
+      {
+        "0000": 5610,
+        "1010": 130,
+        "0100": 344,
+        "1100": 183,
+        "0111": 99,
+        "0001": 349,
+        "0101": 155,
+        "1000": 266,
+        "0011": 130,
+        "1110": 126,
+        "0010": 335,
+        "1011": 82,
+        "1001": 96,
+        "1101": 77,
+        "0110": 135,
+        "1111": 75
+      }
+    ]
+  }
+}
