@@ -1,6 +1,6 @@
 # AlgoInvar: Simulation-Free Benchmarking of Quantum Hardware via Exact Algorithmic Invariants in VQE and QAOA
 
-[<img src="https://img.shields.io/badge/Guide-How%20To%20Run-teal.svg" height="20" alt="Guide: How To Run">](HOW_TO_RUN.md) [<img src="https://img.shields.io/badge/License-PolyForm%20Noncommercial-blue.svg" height="20" alt="License: PolyForm Noncommercial 1.0.0">](LICENSE.md) [<img src="https://img.shields.io/badge/Commercial-Royalty%20Agreement-orange.svg" height="20" alt="Commercial License">](LICENSE.md) [<img src="https://img.shields.io/badge/Python-3.9+-green.svg" height="20" alt="Python 3.9+">](https://www.python.org/downloads/) [<img src="https://img.shields.io/badge/Qiskit-1.0+-613394.svg" height="20" alt="Qiskit 1.0+">](https://qiskit.org/)
+[<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.23627340.svg" height="20" alt="DOI: 10.5281/zenodo.23627340">](https://doi.org/10.5281/zenodo.23627340) [<img src="https://img.shields.io/badge/Guide-How%20To%20Run-teal.svg" height="20" alt="Guide: How To Run">](HOW_TO_RUN.md) [<img src="https://img.shields.io/badge/License-PolyForm%20Noncommercial-blue.svg" height="20" alt="License: PolyForm Noncommercial 1.0.0">](LICENSE.md) [<img src="https://img.shields.io/badge/Commercial-Royalty%20Agreement-orange.svg" height="20" alt="Commercial License">](LICENSE.md) [<img src="https://img.shields.io/badge/Python-3.9+-green.svg" height="20" alt="Python 3.9+">](https://www.python.org/downloads/) [<img src="https://img.shields.io/badge/Qiskit-1.0+-613394.svg" height="20" alt="Qiskit 1.0+">](https://qiskit.org/)
 
 > 📖 **Quick Start:** For step-by-step installation, Python API usage, IBM hardware execution, and Experiment 2 reproduction guides, see [**HOW_TO_RUN.md**](HOW_TO_RUN.md).
 
@@ -271,15 +271,18 @@ python -m unittest tests/test_invariants.py
 
 ## 📜 Citation & Intellectual Property
 
-If you find AlgoInvar useful in your research or commercial evaluation, please cite the manuscript:
+If you find AlgoInvar useful in your research or commercial evaluation, please cite the permanent Zenodo preprint:
+
+* **Permanent DOI:** [https://doi.org/10.5281/zenodo.23627340](https://doi.org/10.5281/zenodo.23627340)
 
 ```bibtex
 @article{arqam2026algoinvar,
   title   = {AlgoInvar: Simulation-Free Benchmarking of Quantum Hardware via Exact Algorithmic Invariants in VQE and QAOA},
   author  = {Arqam, Rehan},
   year    = {2026},
-  url     = {https://github.com/Quantum-Computing-Researcher/AlgoInvar},
-  note    = {Independent Researcher, Islamabad}
+  doi     = {10.5281/zenodo.23627340},
+  url     = {https://doi.org/10.5281/zenodo.23627340},
+  note    = {Preprint, Zenodo CERN, Independent Researcher, Islamabad}
 }
 ```
 

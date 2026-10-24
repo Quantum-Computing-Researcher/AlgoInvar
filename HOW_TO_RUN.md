@@ -3,7 +3,8 @@
 Welcome to the **AlgoInvar** benchmarking repository. This guide provides comprehensive, step-by-step instructions for researchers, quantum software engineers, and auditors to set up, execute, and reproduce every benchmark and experiment reported in the manuscript:
 
 > **"AlgoInvar: Simulation-Free Benchmarking of Quantum Hardware via Exact Algorithmic Invariants in VQE and QAOA"**  
-> *Author:* Rehan Arqam (`rarqam14@gmail.com`) — *Independent Researcher, Islamabad*
+> *Author:* Rehan Arqam (`rarqam14@gmail.com`) — *Independent Researcher, Islamabad*  
+> *Permanent DOI:* [https://doi.org/10.5281/zenodo.23627340](https://doi.org/10.5281/zenodo.23627340)
 
 ---
 
