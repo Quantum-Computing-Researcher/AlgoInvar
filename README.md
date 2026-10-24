@@ -24,7 +24,7 @@ As quantum computing transitions from laboratory experiments to commercial enter
 
 ### 3. Enterprise Pre-Flight Verification & Dynamic Workload Routing
 * **The Problem:** In production quantum SaaS environments (e.g., pharmaceutical molecular simulations, materials discovery, financial portfolio optimization), variational algorithms submit complex parameterized circuits requiring days of hybrid optimization. If an assigned QPU partition suffers from elevated $T_1$ thermal relaxation, readout assignment bias, or entangling gate crosstalk, the entire multi-thousand-dollar business workflow produces corrupt, non-convergent results.
-* **The AlgoInvar Advantage:** AlgoInvar acts as an automated, simulation-free **"pre-flight health-check"**. Prior to dispatching a high-value variational workload, a 13-second AlgoInvar sweep queries the QPU. If out-of-sector leakage ($\mathcal{L}_{\text{leak}}$) or directional asymmetry ($R_{\text{asym}}$) exceeds enterprise tolerance, middleware dynamically routes the job to a healthier physical sub-chain or alternative processor, protecting enterprise clients from wasted budgets and flawed data.
+* **The AlgoInvar Advantage:** AlgoInvar acts as an automated, simulation-free **"pre-flight health-check"**. Prior to dispatching a high-value variational workload, a 13-second AlgoInvar sweep queries the QPU. If out-of-sector leakage $\mathcal{L}_{\mathrm{leak}}$ or directional asymmetry $R_{\mathrm{asym}}$ exceeds enterprise tolerance, middleware dynamically routes the job to a healthier physical sub-chain or alternative processor, protecting enterprise clients from wasted budgets and flawed data.
 
 ### 4. Vendor-Neutral SLA Verification & Hardware Auditing
 * **The Problem:** Enterprise clients procuring dedicated quantum hardware access need objective, hardware-agnostic criteria to verify that service level agreements (SLAs) and advertised gate fidelities translate into actual algorithmic circuit fidelity.
@@ -127,7 +127,7 @@ $$\langle \hat{N} \rangle \equiv N_e \quad \text{and} \quad \text{Var}(\hat{N}) 
 
 * **Measurement:** Read directly in the computational $Z$-basis. Every bitstring $x \in \{0, 1\}^n$ is an eigenstate of $\hat{N}$ with eigenvalue equal to its Hamming weight $w(x) = \sum x_j$.
 * **Sector Leakage Metric:** The total probability mass outside the target $N_e$ sector:
-$$\mathcal{L}_{\text{leak}} = 1 - \sum_{x:\, w(x)=N_e} \frac{C(x)}{S}$$
+$$\mathcal{L}_{\mathrm{leak}} = 1 - \sum_{x:\, w(x)=N_e} \frac{C(x)}{S}$$
 
 ### 2. QAOA Global $\mathbb{Z}_2$ Parity Invariant
 In the Quantum Approximate Optimization Algorithm for graph partitioning (Max-Cut) on an arbitrary graph $G = (V, E)$, the depth-$p$ state is prepared from $|+\rangle^{\otimes n}$ via alternating cost ($H_C = \frac{1}{2}\sum_{(u,v)} (I - Z_u Z_v)$) and mixer ($H_B = \sum_u X_u$) unitaries.
@@ -165,7 +165,7 @@ Each hardware execution batched 5 native ISA circuits ($8,192$ shots per circuit
 | Particle Expectation $\langle \hat{N} \rangle$ | $2.0000$ | $2.0000$ | $1.9760 \pm 0.0040$ | $1.9403 \pm 0.0044$ | Thermal relaxation ($T_1$) asymmetry ($\langle \hat{N} \rangle < N_e$) |
 | Particle Variance $\text{Var}(\hat{N})$ | $0.0000$ | $0.0000$ | $0.1289 \pm 0.0060$ | $0.1616 \pm 0.0062$ | Excitation-changing gate infidelities & SPAM |
 | In-Sector Population ($N_e=2$) | $1.0000$ | $1.0000$ | $0.9163 \pm 0.0031$ | $0.8839 \pm 0.0035$ | Preserved computational target subspace |
-| Out-of-Sector Leakage $\mathcal{L}_{\text{leak}}$ | $0.0000$ | $0.0000$ | $8.37\% \pm 0.31\%$ | $11.61\% \pm 0.35\%$ | Non-unitary population loss into unphysical sectors |
+| Out-of-Sector Leakage $\mathcal{L}_{\mathrm{leak}}$ | $0.0000$ | $0.0000$ | $8.37\% \pm 0.31\%$ | $11.61\% \pm 0.35\%$ | Non-unitary population loss into unphysical sectors |
 | Retrace Echo Fidelity $F_{\text{echo}}$ | $1.0000$ | $1.0000$ | $0.8083 \pm 0.0043$ | $0.8013 \pm 0.0044$ | Round-trip unitary degradation & coherent drift |
 | **QAOA Max-Cut Graph ($n=4$):** | | | | | |
 | Global Parity $\langle \hat{\mathcal{P}} \rangle$ ($p=1$) | $+1.0000$ | $+1.0000$ | $+0.8257 \pm 0.0062$ | $+0.7847 \pm 0.0068$ | Single-layer multi-qubit phase dephasing |
@@ -184,7 +184,7 @@ Each hardware execution batched 5 native ISA circuits ($8,192$ shots per circuit
 | **$w = 2$ (Target Sector)** | **$7506$ ($91.63\% \pm 0.31\%$)** | **$7241$ ($88.39\% \pm 0.35\%$)** | **Physical $N_e=2$ Fermionic Subspace** |
 | $w = 3$ ($|0111\rangle, \dots$) | $211$ ($2.58\% \pm 0.18\%$) | $204$ ($2.49\% \pm 0.17\%$) | Incoherent excitation / Readout assignment bias |
 | $w = 4$ ($|1111\rangle$) | $48$ ($0.59\% \pm 0.08\%$) | $47$ ($0.57\% \pm 0.08\%$) | Multi-qubit incoherent excitation |
-| **Asymmetry Ratio $R_{\text{asym}} = \frac{P(w=1)}{P(w=3)}$** | **$1.66 \pm 0.14$** | **$3.00 \pm 0.24$** | **Directional Relaxation & Readout Bias Indicator** |
+| **Asymmetry Ratio $R_{\mathrm{asym}} = \frac{P(w=1)}{P(w=3)}$** | **$1.66 \pm 0.14$** | **$3.00 \pm 0.24$** | **Directional Relaxation & Readout Bias Indicator** |
 
 The higher invariant retention observed on `ibm_kingston` across every observable correlates with its superior coherence times ($T_1 = 272.3\ \mu\text{s}$ vs $146.8\ \mu\text{s}$ on `ibm_fez`) and lower gate errors ($\bar{\epsilon}_{\text{CZ}} = 0.194\%$ vs $0.215\%$).
 
@@ -196,12 +196,12 @@ All controlled noise-injection benchmark simulations, molecular $\mathrm{H}_2$ s
 
 ### 1. Controlled 4-Channel Noise Injection Sweeps ([`simulation/error_injection.py`](algoinvar_2ndexp/simulation/error_injection.py))
 Evaluates the response of algorithmic invariants under parameterized Kraus operators ($50,000$ shots per point):
-* **Longitudinal Relaxation ($T_1$):** Sweeping amplitude damping $\gamma \in [0.0, 0.20]$ drives the population asymmetry ratio $R_{\text{asym}} = P(w=1)/P(w=3)$ monotonically from $4.27$ at $\gamma = 0.04$ to over $16.4$ at $\gamma = 0.20$. Physical hardware values ($1.66 \pm 0.14$ on Kingston vs $3.00 \pm 0.24$ on Fez) serve as a qualitative consistency check aligned with active coherence times.
-* **Coherent Over-Rotation Invariance (Headline Limitation):** Sweeping angle offsets $\delta \in [-\pi/4, +\pi/4]$ on Givens rotations demonstrates that because $[g_{ij}, \hat{N}] = 0$, particle variance $\text{Var}(\hat{N}) \equiv 0.000$ and sector leakage $\mathcal{L}_{\text{leak}} \equiv 0.000$ remain strictly zero across all perturbation angles. This establishes a key limitation: **exact sector preservation can coexist with degraded circuit fidelity**. Unitary retrace echo $F_{\text{echo}}$ drops quadratically as $\cos^2(\delta)$ ($1.0000 \to 0.7782$), highlighting why echo metrics are indispensable.
+* **Longitudinal Relaxation ($T_1$):** Sweeping amplitude damping $\gamma \in [0.0, 0.20]$ drives the population asymmetry ratio $R_{\mathrm{asym}} = P(w=1)/P(w=3)$ monotonically from $4.27$ at $\gamma = 0.04$ to over $16.4$ at $\gamma = 0.20$. Physical hardware values ($1.66 \pm 0.14$ on Kingston vs $3.00 \pm 0.24$ on Fez) serve as a qualitative consistency check aligned with active coherence times.
+* **Coherent Over-Rotation Invariance (Headline Limitation):** Sweeping angle offsets $\delta \in [-\pi/4, +\pi/4]$ on Givens rotations demonstrates that because $[g_{ij}, \hat{N}] = 0$, particle variance $\text{Var}(\hat{N}) \equiv 0.000$ and sector leakage $\mathcal{L}_{\mathrm{leak}} \equiv 0.000$ remain strictly zero across all perturbation angles. This establishes a key limitation: **exact sector preservation can coexist with degraded circuit fidelity**. Unitary retrace echo $F_{\text{echo}}$ drops quadratically as $\cos^2(\delta)$ ($1.0000 \to 0.7782$), highlighting why echo metrics are indispensable.
 * **Pure Phase Dephasing Double Dissociation:** Applying phase damping Kraus operators $K_0 = \text{diag}(1, \sqrt{1-\lambda})$ and $K_1 = \text{diag}(0, \sqrt{\lambda})$ across $\lambda \in [0.0, 0.25]$ establishes a clear double dissociation:
   * In VQE, mean particle number remains tightly concentrated near the exact baseline ($\langle \hat{N} \rangle = 2.0113 \pm 0.0018$ at $\lambda = 0.25$, with residual shift $\Delta = +0.0113$ caused by gate-level inter-path phase scrambling within the compiled Givens decomposition).
   * In QAOA, phase errors anticommute with the mixer ($\{Z_k, X_k\} = 0$), causing global parity to collapse across depth $p$ ($1.0000 \to 0.1026 \pm 0.0044$ for $p=1$ and to $0.0173 \pm 0.0045$ for $p=2$).
-* **Readout SPAM Confusion:** Symmetric readout noise strictly maintains $R_{\text{asym}} \approx 1.00 \pm 0.04$, whereas asymmetric bias ($P(0\mid 1) = 2.5 P(1\mid 0)$) drives $R_{\text{asym}} > 2.50$, proving symmetric measurement noise cannot falsely mimic directional thermal decay.
+* **Readout SPAM Confusion:** Symmetric readout noise strictly maintains $R_{\mathrm{asym}} \approx 1.00 \pm 0.04$, whereas asymmetric bias ($P(0\mid 1) = 2.5 P(1\mid 0)$) drives $R_{\mathrm{asym}} > 2.50$, proving symmetric measurement noise cannot falsely mimic directional thermal decay.
 
 ### 2. Molecular $\mathrm{H}_2$ Symmetry-Filtered Error Mitigation ([`simulation/symmetry_mitigation.py`](algoinvar_2ndexp/simulation/symmetry_mitigation.py))
 Evaluates active symmetry post-selection for the electronic Hamiltonian of molecular $\mathrm{H}_2$ in the STO-3G basis ($R = 0.735\ \text{\AA}$, exact Full-CI reference energy $E_0 = -1.1372838\ \text{Ha}$, Jordan-Wigner 4-qubit mapping) under composite physical noise ($100,000$ shots per point):
@@ -217,7 +217,7 @@ Evaluates active symmetry post-selection for the electronic Hamiltonian of molec
 | **Cross-Entropy Benchmarking (XEB)** | Pseudo-Random | 0 | 0 | $O(2^n)$ (Exponential) | Heavy output probability |
 | **Quantum Volume (QV)** | Square Model Circuits | 0 | 0 | $O(2^n)$ (Exponential) | Heavy output threshold |
 | **Ancilla-Assisted Symmetry Gadgets** | Variational Ansatz | Up to $2n$ CNOTs | $1$ or more | $O(1)$ | Stabilizer syndrome projection |
-| **AlgoInvar (This Work)** | **VQE & QAOA** | **0** | **0** | **$\bm{O(1)}$ (Exact Theorem)** | **In situ Coherent, $T_1$, $T_2^*$, Leakage** |
+| **AlgoInvar (This Work)** | **VQE & QAOA** | **0** | **0** | **$O(1)$ (Exact Theorem)** | **In situ Coherent, $T_1$, $T_2^*$, Leakage** |
 
 ---
 

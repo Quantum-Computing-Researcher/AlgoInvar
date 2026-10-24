@@ -143,7 +143,7 @@ print(report.summary())
 1. **VQE Particle Conservation:**
    - Evaluates $\langle \hat{N} \rangle = \sum_{k=0}^{n-1} \frac{1 - \langle Z_k \rangle}{2}$.
    - Verifies sub-Poissonian number variance $\text{Var}(\hat{N}) = 0$.
-   - Computes Fock subspace leakage $\mathcal{L}_{\text{Fock}} = 1 - P(N = N_e)$.
+   - Computes Fock subspace leakage $\mathcal{L}_{\mathrm{Fock}} = 1 - P(N = N_e)$.
 2. **QAOA Global $\mathbb{Z}_2$ Parity:**
    - Evaluates the transversal stabilizer $\langle \hat{P}_X \rangle = \langle \bigotimes_{k=0}^{n-1} X_k \rangle \equiv +1$.
    - Detects phase-flip ($Z$) errors that commute with the problem Hamiltonian but anticommute with the mixer.
@@ -248,12 +248,12 @@ python algoinvar_2ndexp/run_all_experiments.py --noise-sweeps
 ```
 * **Physics Evaluated:**
   1. **Amplitude Damping ($T_1$ decay, $\gamma \in [0.0, 0.20]$):**
-     Monitors particle decay $|1\rangle \to |0\rangle$. Demonstrates that $\langle \hat{N} \rangle$ collapses toward 0, and the particle asymmetry ratio $R_{\text{asym}} = P(w=1)/P(w=3) \to \infty$ uniquely fingerprinting $T_1$ relaxation.
+     Monitors particle decay $|1\rangle \to |0\rangle$. Demonstrates that $\langle \hat{N} \rangle$ collapses toward 0, and the particle asymmetry ratio $R_{\mathrm{asym}} = P(w=1)/P(w=3) \to \infty$ uniquely fingerprinting $T_1$ relaxation.
   2. **Pure Dephasing ($T_2$ decoherence, $\lambda \in [0.0, 0.25]$):**
      Applies Kraus operators $K_0 = \begin{pmatrix}1&0\\0&\sqrt{1-\lambda}\end{pmatrix}, K_1 = \begin{pmatrix}0&0\\0&\sqrt{\lambda}\end{pmatrix}$.
      Confirms that VQE particle number is strictly preserved ($\langle \hat{N} \rangle = 2.0113 \pm 0.0018$ at $\lambda=0.25$, with shift caused by gate dephasing in compiled Givens gates), while QAOA global parity collapses from $1.0000 \to 0.1026 \pm 0.0044$ ($p=1$) and $0.0173 \pm 0.0045$ ($p=2$).
   3. **Coherent Overrotation ($\epsilon_\theta \in [-0.15\pi, +0.15\pi]$):**
-     Demonstrates quadratic Fock leakage scaling as $\mathcal{O}(\epsilon^2)$ while maintaining symmetric single-particle populations ($R_{\text{asym}} \approx 1.0$).
+     Demonstrates quadratic Fock leakage scaling as $\mathcal{O}(\epsilon^2)$ while maintaining symmetric single-particle populations ($R_{\mathrm{asym}} \approx 1.0$).
   4. **SPAM Readout Confusion ($\epsilon_{\text{meas}} \in [0.0, 0.08]$):**
      Evaluates symmetric bit-flip noise on detector readout.
 * **Outputs Generated:**
