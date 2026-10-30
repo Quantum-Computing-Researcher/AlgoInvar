@@ -18,7 +18,7 @@ The C++17 core eliminates these bottlenecks through three architecture-level opt
 2. **Word-Aligned Loop Unrolling ($O(S \cdot \lceil n/64 \rceil)$ Scaling):**  
    Measurement bitstrings up to $n = 156$ qubits are packed and processed across 64-bit word boundaries with loop unrolling, achieving linear $O(S \cdot \lceil n/64 \rceil)$ classical post-processing complexity and minimal memory footprint without ever allocating an $O(2^n)$ statevector.
 3. **Python Interoperability (`pybind11`):**  
-   Provides a direct C-extension layer (`algoinvar_core`) exposing `evaluate_fock_distribution` and `evaluate_qaoa_parity` to Python workflows (`algoinvar/` and `03_algoinvar_multiwidth_register_scaling/`).
+   Provides a direct C-extension layer (`algoinvar_core`) exposing `evaluate_fock_distribution` and `evaluate_qaoa_parity` to Python workflows (`01_algoinvar_n4_hardware_baseline/` and `03_algoinvar_multiwidth_register_scaling/`).
 
 ---
 

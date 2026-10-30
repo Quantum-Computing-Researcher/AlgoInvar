@@ -34,58 +34,62 @@ As quantum processors scale beyond 50–100 physical qubits, hardware evaluation
 
 ```text
 AlgoInvar/
-├── README.md                        # Comprehensive master repository documentation
-├── HOW_TO_RUN.md                    # Step-by-step execution guide for all workflows
-├── LICENSE.md                       # Licensing terms (CC BY-NC 4.0 & alternative licensing)
-├── algoinvar research paper/        # APS PRX Quantum / RevTeX 4.2 manuscript & bibliography
-├── pyproject.toml                   # Python project configuration and package metadata
-├── requirements.txt                 # Python dependencies (Qiskit 1.0+, NumPy, Pandas, Matplotlib)
+├── README.md                                 # Comprehensive master repository documentation
+├── HOW_TO_RUN.md                             # Step-by-step execution guide for all workflows
+├── LICENSE.md                                # Licensing terms (CC BY-NC 4.0 & alternative licensing)
+├── algoinvar.py                              # Root package bridge for modular namespace resolution
+├── pyproject.toml                            # Python project configuration and package metadata
+├── requirements.txt                          # Python dependencies (Qiskit 1.0+, NumPy, Pandas, Matplotlib)
+├── algoinvar research paper/                 # APS PRX Quantum / RevTeX 4.2 manuscript & bibliography
 │
-├── 03_algoinvar_multiwidth_register_scaling/               # Campaign 2: Multi-Width Register Scaling Suite (n = 4, 8, 12, 16, 32, 64)
-│   ├── HOW_TO_RUN_SCALING.md        # Step-by-step guide for register-width scaling experiments
-│   ├── qubit_chain_scaling.py       # Calibration-guided greedy DFS chain selector for n = 4..64
-│   ├── scaling_circuits.py          # Parametric VQE & QAOA circuit builders for arbitrary width n
-│   ├── scaling_metrics.py           # 4-tab Excel workbook & vector PDF/PNG figure exporter
-│   ├── scaling_runner.py            # Unified execution engine (Simulation, Hardware, Reverification)
-│   ├── run_scaling_kingston.py      # Scaling CLI driver for 156Q ibm_kingston (Job: dbhkepune4hc73bd3bg0)
-│   ├── run_scaling_fez.py           # Scaling CLI driver for 156Q ibm_fez (Job: dbhm1hmne4hc73bd64f0)
-│   ├── results_scaling_kingston/    # Verified n=4..64 datasets (245,760 shots, 69.0s QPU time)
-│   └── results_scaling_fez/         # Verified n=4..64 datasets (245,760 shots, 68.0s QPU time)
+├── 01_algoinvar_n4_hardware_baseline/        # Campaign 1 Baseline (n = 4) & Core Python Library
+│   ├── run_ibm_kingston.py                   # Campaign 1 CLI driver (n=4 baseline) for 156Q IBM Kingston
+│   ├── run_ibm_fez.py                        # Campaign 1 CLI driver (n=4 baseline) for 156Q IBM Fez
+│   ├── results_kingston/                     # Campaign 1 Datasets: ibm_kingston (Job: dbb4hehgv2cc73e7oq40, 40,960 shots)
+│   ├── results_fez/                          # Campaign 1 Datasets: ibm_fez (Job: dbb4ja9gv2cc73e7oue0, 40,960 shots)
+│   ├── benchmarks/                           # Algebraic invariant evaluators (VQE & QAOA)
+│   ├── circuits/                             # Excitation-conserving Givens & Max-Cut QAOA circuit builders
+│   ├── hardware/                             # IBM Quantum Runtime SamplerV2 & calibration chain routing
+│   └── metrics/                              # Statistical estimators, Excel export & figure generators
 │
-├── 01_algoinvar_n4_hardware_baseline/                       # Campaign 1 Baseline ($n = 4$) & Core Python Library
-│   ├── run_ibm_kingston.py          # Campaign 1 CLI driver (n=4 baseline) for 156Q IBM Kingston
-│   ├── run_ibm_fez.py               # Campaign 1 CLI driver (n=4 baseline) for 156Q IBM Fez
-│   ├── results_kingston/            # Campaign 1 Datasets: ibm_kingston (Job: dbb4hehgv2cc73e7oq40, 40,960 shots)
-│   ├── results_fez/                 # Campaign 1 Datasets: ibm_fez (Job: dbb4ja9gv2cc73e7oue0, 40,960 shots)
-│   ├── benchmarks/                  # Algebraic invariant evaluators (VQE & QAOA)
-│   ├── circuits/                    # Excitation-conserving Givens & Max-Cut QAOA circuit builders
-│   ├── hardware/                    # IBM Quantum Runtime SamplerV2 & calibration chain routing
-│   └── metrics/                     # Statistical estimators, Excel export & figure generators
+├── 02_algoinvar_noise_sweeps_and_mitigation/ # Campaign 2A: Controlled Kraus Noise & H2 Symmetry Mitigation
+│   ├── run_all_experiments.py                # Unified CLI runner for 4-channel noise sweeps & H2 mitigation
+│   ├── benchmarking_comparison.json          # Comparative methodology benchmarking record
+│   ├── methodology_comparison.xlsx           # Multi-method comparison spreadsheet
+│   ├── table_method_comparison.tex           # Publication LaTeX comparison table
+│   ├── circuits/                             # 4-qubit Givens VQE, H2 Hamiltonian, and QAOA ring circuits
+│   ├── simulation/                           # Kraus noise sweeps (T1, T2*, coherent, SPAM) & H2 post-selection
+│   ├── analysis/                             # Vector figure generators
+│   └── results/                              # JSON records, multi-tab Excel workbooks & vector figures
 │
-├── 04_algoinvar_cpp_acceleration_engine/                             # High-Performance C++17 Bitstring Post-Processing Engine (NO simulation)
-│   ├── README.md                    # C++17 POPCNT architecture & pybind11 build guide
-│   ├── CMakeLists.txt               # CMake build configuration (C++17)
-│   ├── setup.py                     # Setuptools builder for pybind11 Python extension (algoinvar_core)
+├── 03_algoinvar_multiwidth_register_scaling/ # Campaign 2B: Multi-Width Register Scaling (n = 4, 8, 12, 16, 32, 64)
+│   ├── HOW_TO_RUN_SCALING.md                 # Step-by-step guide for register-width scaling experiments
+│   ├── qubit_chain_scaling.py                # Calibration-guided greedy DFS chain selector for n = 4..64
+│   ├── scaling_circuits.py                   # Parametric VQE & QAOA circuit builders for arbitrary width n
+│   ├── scaling_metrics.py                    # 4-tab Excel workbook & vector PDF/PNG figure exporter
+│   ├── scaling_runner.py                     # Unified execution engine (Simulation, Hardware, Reverification)
+│   ├── run_scaling_kingston.py               # Scaling CLI driver for 156Q ibm_kingston (Job: dbhkepune4hc73bd3bg0)
+│   ├── run_scaling_fez.py                    # Scaling CLI driver for 156Q ibm_fez (Job: dbhm1hmne4hc73bd64f0)
+│   ├── results_scaling_kingston/             # Verified n=4..64 datasets (245,760 shots, 69.0s QPU time)
+│   └── results_scaling_fez/                  # Verified n=4..64 datasets (245,760 shots, 68.0s QPU time)
+│
+├── 04_algoinvar_cpp_acceleration_engine/     # High-Performance C++17 Bitstring Post-Processing Engine
+│   ├── README.md                             # C++17 POPCNT architecture & pybind11 build guide
+│   ├── CMakeLists.txt                        # CMake build configuration (C++17)
+│   ├── setup.py                              # Setuptools builder for pybind11 Python extension (algoinvar_core)
 │   ├── include/
-│   │   └── algoinvar_fast.hpp       # Header definitions: FockMetrics, ParityMetrics & POPCNT intrinsics
+│   │   └── algoinvar_fast.hpp                # Header definitions: FockMetrics, ParityMetrics & POPCNT intrinsics
 │   ├── src/
-│   │   ├── algoinvar_fast.cpp       # O(S * ceil(n/64)) bitwise Hamming-weight & parity evaluator
-│   │   └── main.cpp                 # Standalone bitstring post-processing throughput benchmark (156Q)
+│   │   ├── algoinvar_fast.cpp                # O(S * ceil(n/64)) bitwise Hamming-weight & parity evaluator
+│   │   └── main.cpp                          # Standalone bitstring post-processing throughput benchmark (156Q)
 │   └── bindings/
-│       └── pybind_module.cpp        # pybind11 module bindings for algoinvar_core
+│       └── pybind_module.cpp                 # pybind11 module bindings for algoinvar_core
 │
-├── 02_algoinvar_noise_sweeps_and_mitigation/                # Controlled Kraus Noise Calibration & H2 Symmetry Mitigation Suite
-│   ├── run_all_experiments.py       # Unified CLI runner for 4-channel noise sweeps & H2 mitigation
-│   ├── circuits/                    # 4-qubit Givens VQE, H2 Hamiltonian, and QAOA ring circuits
-│   ├── simulation/                  # Kraus noise sweeps (T1, T2*, coherent, SPAM) & H2 post-selection
-│   ├── analysis/                    # Vector figure generators
-│   └── results/                     # JSON records, multi-tab Excel workbooks & vector figures
-│
-├── device calibrations/             # Archived IBM Quantum Calibration Telemetry CSVs
-│   ├── Other Experiments/           # Baseline Campaign 1 calibration snapshots (19 Oct 2026)
-│   └── Scaling Experiment 29 Oct/   # Multi-width Campaign 2 calibration snapshots (29 Oct 2026)
-└── tests/                           # Automated unit test suite
-    └── test_invariants.py           # Verification of exact algebraic commutation & invariant identities
+├── device calibrations/                      # Archived IBM Quantum Calibration Telemetry CSVs
+│   ├── Other Experiments/                    # Baseline Campaign 1 calibration snapshots (19 Oct 2026)
+│   └── Scaling Experiment 29 Oct/            # Multi-width Campaign 2 calibration snapshots (29 Oct 2026)
+└── tests/                                    # Automated unit test suite
+    └── test_invariants.py                    # Verification of exact algebraic commutation & invariant identities
 ```
 
 ---

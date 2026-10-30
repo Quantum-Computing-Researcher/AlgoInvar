@@ -11,57 +11,61 @@ Welcome to the **AlgoInvar** benchmarking repository. This guide provides step-b
 ## 1. Architectural Overview: How the Codebase is Organized
 
 ```text
-pro/                                     <-- REPOSITORY ROOT
-├── pyproject.toml                       # Standard package configuration & metadata
-├── requirements.txt                     # Pinned Python dependencies
-├── README.md                            # Master project documentation & empirical summary
-├── HOW_TO_RUN.md                        # This step-by-step execution guide
-├── algoinvar research paper/            # APS PRX Quantum / RevTeX 4.2 manuscript & bibliography
-
+pro/                                          <-- REPOSITORY ROOT
+├── pyproject.toml                            # Standard package configuration & metadata
+├── requirements.txt                          # Pinned Python dependencies
+├── algoinvar.py                              # Root package bridge for modular namespace resolution
+├── README.md                                 # Master project documentation & empirical summary
+├── HOW_TO_RUN.md                             # This step-by-step execution guide
+├── LICENSE.md                                # Licensing terms (CC BY-NC 4.0)
+├── algoinvar research paper/                 # APS PRX Quantum / RevTeX 4.2 manuscript & bibliography
 │
-├── 03_algoinvar_multiwidth_register_scaling/                   <-- CAMPAIGN 2: MULTI-WIDTH SCALING (n = 4, 8, 12, 16, 32, 64)
-│   ├── HOW_TO_RUN_SCALING.md            # Dedicated guide for n=4..64 scaling runs
-│   ├── qubit_chain_scaling.py           # Calibration-guided greedy DFS chain selector for n=4..64
-│   ├── scaling_circuits.py              # Parametric VQE & QAOA circuit builders for width n
-│   ├── scaling_metrics.py               # 4-tab Excel workbook & vector PDF/PNG figure exporter
-│   ├── scaling_runner.py                # Unified execution engine (Sim, Hardware, Reverification)
-│   ├── run_scaling_kingston.py          # Scaling CLI driver for ibm_kingston (Job: dbhkepune4hc73bd3bg0)
-│   ├── run_scaling_fez.py               # Scaling CLI driver for ibm_fez (Job: dbhm1hmne4hc73bd64f0)
-│   ├── results_scaling_kingston/        # Verified n=4..64 datasets (245,760 shots, 69.0s QPU time)
-│   └── results_scaling_fez/             # Verified n=4..64 datasets (245,760 shots, 68.0s QPU time)
+├── 01_algoinvar_n4_hardware_baseline/        <-- CAMPAIGN 1: BASELINE (n = 4) & CORE PACKAGE
+│   ├── run_ibm_kingston.py                   # Campaign 1 CLI driver (n=4) for 156Q IBM Kingston
+│   ├── run_ibm_fez.py                        # Campaign 1 CLI driver (n=4) for 156Q IBM Fez
+│   ├── results_kingston/                     # Campaign 1 QPU & simulation data (Job: dbb4hehgv2cc73e7oq40)
+│   ├── results_fez/                          # Campaign 1 QPU & simulation data (Job: dbb4ja9gv2cc73e7oue0)
+│   ├── __init__.py                           # Package exports ("from algoinvar import run_suite")
+│   ├── runner.py                             # Top-level API suite runner
+│   ├── benchmarks/                           # Invariant evaluators (VQE particle, QAOA parity & retrace)
+│   ├── circuits/                             # Parametric state-preparation circuits
+│   ├── hardware/                             # Transpilation & IBM Runtime SamplerV2 integration
+│   └── metrics/                              # Statistical estimators, 4-tab Excel & figure exporters
 │
-├── 01_algoinvar_n4_hardware_baseline/                           <-- CAMPAIGN 1 BASELINE ($n = 4$) & CORE PACKAGE
-│   ├── run_ibm_kingston.py              # Campaign 1 CLI driver (n=4) for 156Q IBM Kingston
-│   ├── run_ibm_fez.py                   # Campaign 1 CLI driver (n=4) for 156Q IBM Fez
-│   ├── results_kingston/                # Campaign 1 QPU & simulation data (Job: dbb4hehgv2cc73e7oq40)
-│   ├── results_fez/                     # Campaign 1 QPU & simulation data (Job: dbb4ja9gv2cc73e7oue0)
-│   ├── __init__.py                      # Package exports ("from algoinvar import run_suite")
-│   ├── runner.py                        # Top-level API suite runner
-│   ├── benchmarks/                      # Invariant evaluators (VQE particle, QAOA parity & retrace)
-│   ├── circuits/                        # Parametric state-preparation circuits
-│   ├── hardware/                        # Transpilation & IBM Runtime SamplerV2 integration
-│   └── metrics/                         # Statistical estimators, 4-tab Excel & figure exporters
+├── 02_algoinvar_noise_sweeps_and_mitigation/ <-- CAMPAIGN 2A: CONTROLLED KRAUS NOISE & H2 MITIGATION
+│   ├── run_all_experiments.py                # Master script running all 4 noise sweeps & H2 mitigation
+│   ├── benchmarking_comparison.json          # Comparative methodology benchmarking record
+│   ├── methodology_comparison.xlsx           # Multi-method comparison spreadsheet
+│   ├── table_method_comparison.tex           # Publication LaTeX comparison table
+│   ├── analysis/                             # Publication vector figure generation
+│   ├── circuits/                             # Givens VQE, H2 Hamiltonian, and QAOA circuits
+│   ├── results/                              # Raw simulation JSON and 4-tab Excel records
+│   └── simulation/                           # Kraus noise channels (T1, T2*, coherent, SPAM)
 │
-├── 04_algoinvar_cpp_acceleration_engine/                                 <-- C++17 BITSTRING POST-PROCESSING ENGINE (No Statevector Sim)
-│   ├── README.md                        # C++17 POPCNT architecture & pybind11 documentation
-│   ├── CMakeLists.txt                   # Standard CMake build configuration (C++17)
-│   ├── setup.py                         # Setuptools builder for pybind11 Python extension
-│   ├── include/algoinvar_fast.hpp       # FockMetrics, ParityMetrics & 64-bit POPCNT intrinsics
-│   ├── src/algoinvar_fast.cpp           # O(S * ceil(n/64)) bitwise Hamming-weight & parity engine
-│   ├── src/main.cpp                     # Standalone throughput benchmark on 156Q bitstrings
-│   └── bindings/pybind_module.cpp       # pybind11 module bindings for algoinvar_core
+├── 03_algoinvar_multiwidth_register_scaling/ <-- CAMPAIGN 2B: MULTI-WIDTH SCALING (n = 4, 8, 12, 16, 32, 64)
+│   ├── HOW_TO_RUN_SCALING.md                 # Dedicated guide for n=4..64 scaling runs
+│   ├── qubit_chain_scaling.py                # Calibration-guided greedy DFS chain selector for n=4..64
+│   ├── scaling_circuits.py                   # Parametric VQE & QAOA circuit builders for width n
+│   ├── scaling_metrics.py                    # 4-tab Excel workbook & vector PDF/PNG figure exporter
+│   ├── scaling_runner.py                     # Unified execution engine (Sim, Hardware, Reverification)
+│   ├── run_scaling_kingston.py               # Scaling CLI driver for ibm_kingston (Job: dbhkepune4hc73bd3bg0)
+│   ├── run_scaling_fez.py                    # Scaling CLI driver for ibm_fez (Job: dbhm1hmne4hc73bd64f0)
+│   ├── results_scaling_kingston/             # Verified n=4..64 datasets (245,760 shots, 69.0s QPU time)
+│   └── results_scaling_fez/                  # Verified n=4..64 datasets (245,760 shots, 68.0s QPU time)
 │
-├── 02_algoinvar_noise_sweeps_and_mitigation/                    <-- CONTROLLED KRAUS NOISE & H2 MITIGATION SUITE
-│   ├── run_all_experiments.py           # Master script running all 4 noise sweeps & H2 mitigation
-│   ├── analysis/                        # Publication vector figure generation
-│   ├── circuits/                        # Givens VQE, H2 Hamiltonian, and QAOA circuits
-│   ├── results/                         # Raw simulation JSON and 4-tab Excel records
-│   └── simulation/                      # Kraus noise channels (T1, T2*, coherent, SPAM)
+├── 04_algoinvar_cpp_acceleration_engine/     <-- C++17 BITSTRING POST-PROCESSING ENGINE (No Statevector Sim)
+│   ├── README.md                             # C++17 POPCNT architecture & pybind11 documentation
+│   ├── CMakeLists.txt                        # Standard CMake build configuration (C++17)
+│   ├── setup.py                              # Setuptools builder for pybind11 Python extension
+│   ├── include/algoinvar_fast.hpp            # FockMetrics, ParityMetrics & 64-bit POPCNT intrinsics
+│   ├── src/algoinvar_fast.cpp                # O(S * ceil(n/64)) bitwise Hamming-weight & parity engine
+│   ├── src/main.cpp                          # Standalone throughput benchmark on 156Q bitstrings
+│   └── bindings/pybind_module.cpp            # pybind11 module bindings for algoinvar_core
 │
-├── device calibrations/             # Archived IBM Quantum Calibration Telemetry CSVs
-│   ├── Other Experiments/           # Baseline Campaign 1 calibration snapshots (19 Oct 2026)
-│   └── Scaling Experiment 29 Oct/   # Multi-width Campaign 2 calibration snapshots (29 Oct 2026)
-└── tests/                               # Automated unit test suite
+├── device calibrations/                      # Archived IBM Quantum Calibration Telemetry CSVs
+│   ├── Other Experiments/                    # Baseline Campaign 1 calibration snapshots (19 Oct 2026)
+│   └── Scaling Experiment 29 Oct/            # Multi-width Campaign 2 calibration snapshots (29 Oct 2026)
+└── tests/                                    # Automated unit test suite
 ```
 
 ---
