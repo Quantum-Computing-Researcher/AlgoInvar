@@ -22,4 +22,4 @@ dependencies = [
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["algoinvar*"]
+include = ["01_algoinvar*", "02_algoinvar*", "03_algoinvar*", "algoinvar*"]

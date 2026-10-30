@@ -21,8 +21,8 @@ env.bak/
 venv.bak/
 bin/
 include/
-!cpp/include/
-!cpp/include/*
+!04_algoinvar_cpp_acceleration_engine/include/
+!04_algoinvar_cpp_acceleration_engine/include/*
 lib/
 lib64/
 

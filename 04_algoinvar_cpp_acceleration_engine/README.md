@@ -1,9 +1,9 @@
-# AlgoInvar High-Performance C++17 Bitstring Post-Processing Engine (`cpp/`)
+# AlgoInvar High-Performance C++17 Bitstring Post-Processing Engine (`04_algoinvar_cpp_acceleration_engine/`)
 
-The `cpp/` directory provides a hardware-accelerated **C++17 bitwise post-processing engine** (`algoinvar_fast`) designed for high-throughput, low-latency classical measurement bitstring analysis in **AlgoInvar**.
+The `04_algoinvar_cpp_acceleration_engine/` directory provides a hardware-accelerated **C++17 bitwise post-processing engine** (`algoinvar_fast`) designed for high-throughput, low-latency classical measurement bitstring analysis in **AlgoInvar**.
 
 > **Scope & Purpose (Bitstring Post-Processing vs. Quantum Simulation):**  
-> This C++17 module performs **zero quantum statevector or tensor-network simulation**. In accordance with AlgoInvar's simulation-free architecture ($O(1)$ analytical reference values), the sole purpose of `cpp/` is to accelerate the **linear $O(S \cdot \lceil n/64 \rceil)$ classical bitstring post-processing step**—computing computational-basis Hamming weights $\text{wt}(x) = \sum_{j=1}^n x_j$, Fock-sector populations $P(w)$, out-of-sector leakage $\mathcal{L}_{\text{leak}}$, directional asymmetry ratios $R_{\text{asym}}$, and $X$-basis parity eigenvalues $(-1)^{\sum_{j=1}^n y_j}$ across wide utility-scale hardware bitstrings ($n \in \{4, 8, 12, 16, 32, 64, \dots, 156\}$ qubits) returned by Qiskit Runtime `SamplerV2`.
+> This C++17 module performs **zero quantum statevector or tensor-network simulation**. In accordance with AlgoInvar's simulation-free architecture ($O(1)$ analytical reference values), the sole purpose of `04_algoinvar_cpp_acceleration_engine/` is to accelerate the **linear $O(S \cdot \lceil n/64 \rceil)$ classical bitstring post-processing step**—computing computational-basis Hamming weights $\text{wt}(x) = \sum_{j=1}^n x_j$, Fock-sector populations $P(w)$, out-of-sector leakage $\mathcal{L}_{\text{leak}}$, directional asymmetry ratios $R_{\text{asym}}$, and $X$-basis parity eigenvalues $(-1)^{\sum_{j=1}^n y_j}$ across wide utility-scale hardware bitstrings ($n \in \{4, 8, 12, 16, 32, 64, \dots, 156\}$ qubits) returned by Qiskit Runtime `SamplerV2`.
 
 ---
 
@@ -18,14 +18,14 @@ The C++17 core eliminates these bottlenecks through three architecture-level opt
 2. **Word-Aligned Loop Unrolling ($O(S \cdot \lceil n/64 \rceil)$ Scaling):**  
    Measurement bitstrings up to $n = 156$ qubits are packed and processed across 64-bit word boundaries with loop unrolling, achieving linear $O(S \cdot \lceil n/64 \rceil)$ classical post-processing complexity and minimal memory footprint without ever allocating an $O(2^n)$ statevector.
 3. **Python Interoperability (`pybind11`):**  
-   Provides a direct C-extension layer (`algoinvar_core`) exposing `evaluate_fock_distribution` and `evaluate_qaoa_parity` to Python workflows (`algoinvar/` and `Scaled_Experiment/`).
+   Provides a direct C-extension layer (`algoinvar_core`) exposing `evaluate_fock_distribution` and `evaluate_qaoa_parity` to Python workflows (`algoinvar/` and `03_algoinvar_multiwidth_register_scaling/`).
 
 ---
 
 ## 📁 Module Organization
 
 ```text
-cpp/
+04_algoinvar_cpp_acceleration_engine/
 ├── README.md                # Architectural documentation & build instructions
 ├── CMakeLists.txt           # Standard CMake build configuration (C++17)
 ├── setup.py                 # Setuptools builder for pybind11 Python extension

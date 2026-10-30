@@ -23,12 +23,16 @@ import matplotlib.pyplot as plt
 
 SCRIPT_DIR = os.path.abspath(os.path.dirname(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
-if PROJECT_ROOT not in sys.path:
-    sys.path.insert(0, PROJECT_ROOT)
+EXP1_DIR = os.path.join(PROJECT_ROOT, "01_algoinvar_n4_hardware_baseline")
+for p in [PROJECT_ROOT, EXP1_DIR]:
+    if p not in sys.path:
+        sys.path.insert(0, p)
 
 try:
-    from algoinvar_n4_1st_exp.hardware.ibm_runner import analyze_circuit_results
+    from algoinvar.hardware.ibm_runner import analyze_circuit_results
 except ImportError:
+    import importlib
+    sys.modules["algoinvar"] = importlib.import_module("01_algoinvar_n4_hardware_baseline")
     from algoinvar.hardware.ibm_runner import analyze_circuit_results
 
 # We configure Matplotlib with serif typography for publication figures

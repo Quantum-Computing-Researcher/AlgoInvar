@@ -23,17 +23,20 @@ import sys
 # Dynamic project root configuration
 
 SCRIPT_DIR = os.path.abspath(os.path.dirname(__file__))
-if os.path.basename(SCRIPT_DIR) in ["algoinvar", "algoinvar_n4_1st_exp"]:
+if os.path.basename(SCRIPT_DIR) in ["algoinvar", "01_algoinvar_n4_hardware_baseline"]:
     PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
 else:
     PROJECT_ROOT = SCRIPT_DIR
 
-if PROJECT_ROOT not in sys.path:
-    sys.path.insert(0, PROJECT_ROOT)
+for p in [PROJECT_ROOT, SCRIPT_DIR]:
+    if p not in sys.path:
+        sys.path.insert(0, p)
 
 try:
-    from algoinvar_n4_1st_exp.hardware.ibm_runner import run_algoinvar_experiments
+    from algoinvar.hardware.ibm_runner import run_algoinvar_experiments
 except ImportError:
+    import importlib
+    sys.modules["algoinvar"] = importlib.import_module("01_algoinvar_n4_hardware_baseline")
     from algoinvar.hardware.ibm_runner import run_algoinvar_experiments
 
 # ==============================================================================

@@ -1,8 +1,8 @@
 # AlgoInvar: Simulation-Free Benchmarking of Quantum Hardware via Exact Algorithmic Invariants in VQE and QAOA
 
-[<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.23627340.svg" height="20" alt="DOI: 10.5281/zenodo.23627340">](https://doi.org/10.5281/zenodo.23627340) [<img src="https://img.shields.io/badge/Guide-How%20To%20Run-teal.svg" height="20" alt="Guide: How To Run">](HOW_TO_RUN.md) [<img src="https://img.shields.io/badge/Scaling%20Suite-n%3D4..64-purple.svg" height="20" alt="Scaling Suite: n=4..64">](Scaled_Experiment/HOW_TO_RUN_SCALING.md) [<img src="https://img.shields.io/badge/License-CC%20BY--NC%204.0-blue.svg" height="20" alt="License: CC BY-NC 4.0">](LICENSE.md) [<img src="https://img.shields.io/badge/Python-3.9+-green.svg" height="20" alt="Python 3.9+">](https://www.python.org/downloads/) [<img src="https://img.shields.io/badge/Qiskit-1.0+-613394.svg" height="20" alt="Qiskit 1.0+">](https://qiskit.org/)
+[<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.23627340.svg" height="20" alt="DOI: 10.5281/zenodo.23627340">](https://doi.org/10.5281/zenodo.23627340) [<img src="https://img.shields.io/badge/Guide-How%20To%20Run-teal.svg" height="20" alt="Guide: How To Run">](HOW_TO_RUN.md) [<img src="https://img.shields.io/badge/Scaling%20Suite-n%3D4..64-purple.svg" height="20" alt="Scaling Suite: n=4..64">](03_algoinvar_multiwidth_register_scaling/HOW_TO_RUN_SCALING.md) [<img src="https://img.shields.io/badge/License-CC%20BY--NC%204.0-blue.svg" height="20" alt="License: CC BY-NC 4.0">](LICENSE.md) [<img src="https://img.shields.io/badge/Python-3.9+-green.svg" height="20" alt="Python 3.9+">](https://www.python.org/downloads/) [<img src="https://img.shields.io/badge/Qiskit-1.0+-613394.svg" height="20" alt="Qiskit 1.0+">](https://qiskit.org/)
 
-> 📖 **Quick Start:** For step-by-step installation, Python API usage, IBM hardware execution, multi-width register scaling ($n = 4 \to 64$), and Experiment 2 reproduction guides, see [**HOW_TO_RUN.md**](HOW_TO_RUN.md) and [**Scaled_Experiment/HOW_TO_RUN_SCALING.md**](Scaled_Experiment/HOW_TO_RUN_SCALING.md).
+> 📖 **Quick Start:** For step-by-step installation, Python API usage, IBM hardware execution, multi-width register scaling ($n = 4 \to 64$), and Experiment 2 reproduction guides, see [**HOW_TO_RUN.md**](HOW_TO_RUN.md) and [**03_algoinvar_multiwidth_register_scaling/HOW_TO_RUN_SCALING.md**](03_algoinvar_multiwidth_register_scaling/HOW_TO_RUN_SCALING.md).
 
 **AlgoInvar** is an in situ, simulation-free, parameter-free quantum hardware benchmarking and characterization framework anchored to exact algebraic conservation laws and continuous physical symmetries in algorithmically relevant workloads: **Variational Quantum Eigensolver (VQE)** fermionic chemistry and the **Quantum Approximate Optimization Algorithm (QAOA)** combinatorial optimization.
 
@@ -20,7 +20,7 @@ As quantum processors scale beyond 50–100 physical qubits, hardware evaluation
 
 ### 2. Zero Classical Statevector Simulation ($O(1)$ Reference Derivation)
 * **Challenge:** Holistic fidelity benchmarks such as XEB and Quantum Volume (QV) rely on comparing measured sample frequencies against classically simulated ideal output distributions ($O(2^n)$ complexity), which requires $16\text{ PiB}$ of memory at $n = 50$ and $295\text{ EiB}$ at $n = 64$.
-* **AlgoInvar Capability:** Reference invariant values in AlgoInvar ($\langle \hat{N} \rangle \equiv N_e$, $\text{Var}(\hat{N}) \equiv 0$, $\langle \hat{\mathcal{P}} \rangle \equiv +1$, $F_{\text{echo}} \equiv 1$) are exact algebraic conservation theorems known analytically *a priori*. Deriving the theoretical reference requires **$O(1)$ classical compute**, followed by linear $O(S \cdot n)$ bitstring post-processing (accelerated to $O(S \cdot \lceil n/64 \rceil)$ via 64-bit hardware `POPCNT` CPU intrinsics in [`cpp/`](cpp/README.md)).
+* **AlgoInvar Capability:** Reference invariant values in AlgoInvar ($\langle \hat{N} \rangle \equiv N_e$, $\text{Var}(\hat{N}) \equiv 0$, $\langle \hat{\mathcal{P}} \rangle \equiv +1$, $F_{\text{echo}} \equiv 1$) are exact algebraic conservation theorems known analytically *a priori*. Deriving the theoretical reference requires **$O(1)$ classical compute**, followed by linear $O(S \cdot n)$ bitstring post-processing (accelerated to $O(S \cdot \lceil n/64 \rceil)$ via 64-bit hardware `POPCNT` CPU intrinsics in [`04_algoinvar_cpp_acceleration_engine/`](04_algoinvar_cpp_acceleration_engine/README.md)).
 
 ### 3. Two-Stage Calibration Auditing, Spatial Defect Localization & In Situ SPAM Deconvolution
 * **Challenge:** In shared cloud execution environments, long queue residency times ($\Delta t_{\text{queue}} > \tau_{\text{cal}}$) can invalidate compile-time qubit layouts before execution begins, while detector dark counts ($\varepsilon_{0\to 1}$) obscure active gate fidelity on wide registers.
@@ -41,7 +41,7 @@ AlgoInvar/
 ├── pyproject.toml                   # Python project configuration and package metadata
 ├── requirements.txt                 # Python dependencies (Qiskit 1.0+, NumPy, Pandas, Matplotlib)
 │
-├── Scaled_Experiment/               # Campaign 2: Multi-Width Register Scaling Suite (n = 4, 8, 12, 16, 32, 64)
+├── 03_algoinvar_multiwidth_register_scaling/               # Campaign 2: Multi-Width Register Scaling Suite (n = 4, 8, 12, 16, 32, 64)
 │   ├── HOW_TO_RUN_SCALING.md        # Step-by-step guide for register-width scaling experiments
 │   ├── qubit_chain_scaling.py       # Calibration-guided greedy DFS chain selector for n = 4..64
 │   ├── scaling_circuits.py          # Parametric VQE & QAOA circuit builders for arbitrary width n
@@ -52,7 +52,7 @@ AlgoInvar/
 │   ├── results_scaling_kingston/    # Verified n=4..64 datasets (245,760 shots, 69.0s QPU time)
 │   └── results_scaling_fez/         # Verified n=4..64 datasets (245,760 shots, 68.0s QPU time)
 │
-├── algoinvar_n4_1st_exp/                       # Campaign 1 Baseline ($n = 4$) & Core Python Library
+├── 01_algoinvar_n4_hardware_baseline/                       # Campaign 1 Baseline ($n = 4$) & Core Python Library
 │   ├── run_ibm_kingston.py          # Campaign 1 CLI driver (n=4 baseline) for 156Q IBM Kingston
 │   ├── run_ibm_fez.py               # Campaign 1 CLI driver (n=4 baseline) for 156Q IBM Fez
 │   ├── results_kingston/            # Campaign 1 Datasets: ibm_kingston (Job: dbb4hehgv2cc73e7oq40, 40,960 shots)
@@ -62,7 +62,7 @@ AlgoInvar/
 │   ├── hardware/                    # IBM Quantum Runtime SamplerV2 & calibration chain routing
 │   └── metrics/                     # Statistical estimators, Excel export & figure generators
 │
-├── cpp/                             # High-Performance C++17 Bitstring Post-Processing Engine (NO simulation)
+├── 04_algoinvar_cpp_acceleration_engine/                             # High-Performance C++17 Bitstring Post-Processing Engine (NO simulation)
 │   ├── README.md                    # C++17 POPCNT architecture & pybind11 build guide
 │   ├── CMakeLists.txt               # CMake build configuration (C++17)
 │   ├── setup.py                     # Setuptools builder for pybind11 Python extension (algoinvar_core)
@@ -74,7 +74,7 @@ AlgoInvar/
 │   └── bindings/
 │       └── pybind_module.cpp        # pybind11 module bindings for algoinvar_core
 │
-├── algoinvar_2ndexp/                # Controlled Kraus Noise Calibration & H2 Symmetry Mitigation Suite
+├── 02_algoinvar_noise_sweeps_and_mitigation/                # Controlled Kraus Noise Calibration & H2 Symmetry Mitigation Suite
 │   ├── run_all_experiments.py       # Unified CLI runner for 4-channel noise sweeps & H2 mitigation
 │   ├── circuits/                    # 4-qubit Givens VQE, H2 Hamiltonian, and QAOA ring circuits
 │   ├── simulation/                  # Kraus noise sweeps (T1, T2*, coherent, SPAM) & H2 post-selection
@@ -120,11 +120,11 @@ AlgoInvar was validated on two independent 156-qubit IBM Heron r2 superconductin
 
 ---
 
-## ⚡ AlgoInvar High-Performance C++17 Bitstring Post-Processing Engine (`cpp/`)
+## ⚡ AlgoInvar High-Performance C++17 Bitstring Post-Processing Engine (`04_algoinvar_cpp_acceleration_engine/`)
 
-> **Important Note on Purpose:** The [`cpp/`](cpp/) directory is **not** a classical quantum statevector simulator. In accordance with AlgoInvar's simulation-free framework, `cpp/` implements the **linear $O(S \cdot \lceil n/64 \rceil)$ classical bitstring post-processing engine** that computes Hamming weights $\text{wt}(x) = \sum x_j$, Fock-sector populations $P(w)$, and $X$-basis parity eigenvalues $(-1)^{\sum y_j}$ from hardware measurement bitstrings using native 64-bit CPU `POPCNT` intrinsics (`__popcnt64` / `__builtin_popcountll`).
+> **Important Note on Purpose:** The [`04_algoinvar_cpp_acceleration_engine/`](04_algoinvar_cpp_acceleration_engine/) directory is **not** a classical quantum statevector simulator. In accordance with AlgoInvar's simulation-free framework, `04_algoinvar_cpp_acceleration_engine/` implements the **linear $O(S \cdot \lceil n/64 \rceil)$ classical bitstring post-processing engine** that computes Hamming weights $\text{wt}(x) = \sum x_j$, Fock-sector populations $P(w)$, and $X$-basis parity eigenvalues $(-1)^{\sum y_j}$ from hardware measurement bitstrings using native 64-bit CPU `POPCNT` intrinsics (`__popcnt64` / `__builtin_popcountll`).
 
-By packing wide measurement bitstrings ($n = 64$ to $156$ qubits) into 64-bit integer words and invoking single-cycle hardware population-count instructions, `cpp/` evaluates $100,000$ shots of 156-qubit bitstrings in **$1.84\text{ ms}$** ($\sim 5.4 \times 10^7\text{ shots/sec}$, a $115\times$ speedup over character-by-character Python loops) with zero $O(2^n)$ statevector allocation. It includes both a standalone C++17 benchmark executable and native Python bindings via `pybind11` (`algoinvar_core`). See [`cpp/README.md`](cpp/README.md) for complete build details.
+By packing wide measurement bitstrings ($n = 64$ to $156$ qubits) into 64-bit integer words and invoking single-cycle hardware population-count instructions, `04_algoinvar_cpp_acceleration_engine/` evaluates $100,000$ shots of 156-qubit bitstrings in **$1.84\text{ ms}$** ($\sim 5.4 \times 10^7\text{ shots/sec}$, a $115\times$ speedup over character-by-character Python loops) with zero $O(2^n)$ statevector allocation. It includes both a standalone C++17 benchmark executable and native Python bindings via `pybind11` (`algoinvar_core`). See [`04_algoinvar_cpp_acceleration_engine/README.md`](04_algoinvar_cpp_acceleration_engine/README.md) for complete build details.
 
 ---
 
@@ -133,45 +133,45 @@ By packing wide measurement bitstrings ($n = 64$ to $156$ qubits) into 64-bit in
 ### 1. Campaign 1 Baseline Drivers ($n = 4$, `run_ibm_kingston.py` & `run_ibm_fez.py`)
 ```bash
 # Mode 1: Local noiseless simulation baseline (0 QPU seconds)
-python algoinvar_n4_1st_exp/run_ibm_kingston.py
-python algoinvar_n4_1st_exp/run_ibm_fez.py
+python 01_algoinvar_n4_hardware_baseline/run_ibm_kingston.py
+python 01_algoinvar_n4_hardware_baseline/run_ibm_fez.py
 
 # Mode 2: Physical hardware execution on 156Q Heron r2 (40,960 shots, ~13.0s QPU time)
-python algoinvar_n4_1st_exp/run_ibm_kingston.py --hardware --token "YOUR_IBM_TOKEN" --crn "YOUR_IBM_CRN"
-python algoinvar_n4_1st_exp/run_ibm_fez.py --hardware --token "YOUR_IBM_TOKEN" --crn "YOUR_IBM_CRN"
+python 01_algoinvar_n4_hardware_baseline/run_ibm_kingston.py --hardware --token "YOUR_IBM_TOKEN" --crn "YOUR_IBM_CRN"
+python 01_algoinvar_n4_hardware_baseline/run_ibm_fez.py --hardware --token "YOUR_IBM_TOKEN" --crn "YOUR_IBM_CRN"
 
 # Mode 3: Offline reverification of completed Job IDs (0 QPU seconds)
-python algoinvar_n4_1st_exp/run_ibm_kingston.py --job-id "dbb4hehgv2cc73e7oq40" --token "YOUR_IBM_TOKEN" --crn "YOUR_IBM_CRN"
-python algoinvar_n4_1st_exp/run_ibm_fez.py --job-id "dbb4ja9gv2cc73e7oue0" --token "YOUR_IBM_TOKEN" --crn "YOUR_IBM_CRN"
+python 01_algoinvar_n4_hardware_baseline/run_ibm_kingston.py --job-id "dbb4hehgv2cc73e7oq40" --token "YOUR_IBM_TOKEN" --crn "YOUR_IBM_CRN"
+python 01_algoinvar_n4_hardware_baseline/run_ibm_fez.py --job-id "dbb4ja9gv2cc73e7oue0" --token "YOUR_IBM_TOKEN" --crn "YOUR_IBM_CRN"
 ```
 
-### 2. Campaign 2 Multi-Width Register Scaling Drivers ($n = 4, 8, 12, 16, 32, 64$, `Scaled_Experiment/`)
+### 2. Campaign 2 Multi-Width Register Scaling Drivers ($n = 4, 8, 12, 16, 32, 64$, `03_algoinvar_multiwidth_register_scaling/`)
 ```bash
 # Mode 1: Local simulation mode (0 QPU seconds)
-python Scaled_Experiment/run_scaling_kingston.py
-python Scaled_Experiment/run_scaling_fez.py
+python 03_algoinvar_multiwidth_register_scaling/run_scaling_kingston.py
+python 03_algoinvar_multiwidth_register_scaling/run_scaling_fez.py
 
 # Mode 2: Physical hardware execution across n=4..64 (245,760 shots, ~68-69s QPU time)
-python Scaled_Experiment/run_scaling_kingston.py --hardware --token "YOUR_IBM_TOKEN" --crn "YOUR_IBM_CRN"
-python Scaled_Experiment/run_scaling_fez.py --hardware --token "YOUR_IBM_TOKEN" --crn "YOUR_IBM_CRN"
+python 03_algoinvar_multiwidth_register_scaling/run_scaling_kingston.py --hardware --token "YOUR_IBM_TOKEN" --crn "YOUR_IBM_CRN"
+python 03_algoinvar_multiwidth_register_scaling/run_scaling_fez.py --hardware --token "YOUR_IBM_TOKEN" --crn "YOUR_IBM_CRN"
 
 # Mode 3: Offline reverification of completed scaling Job IDs (0 QPU seconds)
-python Scaled_Experiment/run_scaling_kingston.py --job-id "dbhkepune4hc73bd3bg0" --token "YOUR_IBM_TOKEN" --crn "YOUR_IBM_CRN"
-python Scaled_Experiment/run_scaling_fez.py --job-id "dbhm1hmne4hc73bd64f0" --token "YOUR_IBM_TOKEN" --crn "YOUR_IBM_CRN"
+python 03_algoinvar_multiwidth_register_scaling/run_scaling_kingston.py --job-id "dbhkepune4hc73bd3bg0" --token "YOUR_IBM_TOKEN" --crn "YOUR_IBM_CRN"
+python 03_algoinvar_multiwidth_register_scaling/run_scaling_fez.py --job-id "dbhm1hmne4hc73bd64f0" --token "YOUR_IBM_TOKEN" --crn "YOUR_IBM_CRN"
 ```
 
-### 3. Controlled Kraus Noise & $\mathrm{H}_2$ Symmetry Mitigation Suite (`algoinvar_2ndexp/`)
+### 3. Controlled Kraus Noise & $\mathrm{H}_2$ Symmetry Mitigation Suite (`02_algoinvar_noise_sweeps_and_mitigation/`)
 ```bash
-python algoinvar_2ndexp/run_all_experiments.py
+python 02_algoinvar_noise_sweeps_and_mitigation/run_all_experiments.py
 ```
 
-### 4. C++17 Bitstring Post-Processing Engine (`cpp/`) & Unit Tests (`tests/`)
+### 4. C++17 Bitstring Post-Processing Engine (`04_algoinvar_cpp_acceleration_engine/`) & Unit Tests (`tests/`)
 ```bash
 # Run automated unit tests for exact algebraic invariants
 python -m unittest tests/test_invariants.py
 
 # Compile and run the C++17 POPCNT bitstring throughput benchmark
-cd cpp
+cd 04_algoinvar_cpp_acceleration_engine
 g++ -O3 -std=c++17 src/main.cpp src/algoinvar_fast.cpp -o algoinvar_bench
 ./algoinvar_bench
 ```

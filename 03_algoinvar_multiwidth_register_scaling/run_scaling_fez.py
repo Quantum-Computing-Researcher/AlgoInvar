@@ -4,16 +4,16 @@ across Register Widths n = [4, 8, 12, 16, 32, 64].
 
 Executes the AlgoInvar benchmark suite across three distinct modes:
 1. Simulation-only (Noiseless AerSimulator baseline):
-   python Scaled_Experiment/run_scaling_fez.py
-   -> outputs to Scaled_Experiment/results_scaling_fez/simulation/
+   python 03_algoinvar_multiwidth_register_scaling/run_scaling_fez.py
+   -> outputs to 03_algoinvar_multiwidth_register_scaling/results_scaling_fez/simulation/
 
 2. Physical Hardware Run (156-qubit IBM Heron r2 processor):
-   python Scaled_Experiment/run_scaling_fez.py --hardware --token "<TOKEN>" --crn "<CRN>"
-   -> outputs to Scaled_Experiment/results_scaling_fez/hardware_run/
+   python 03_algoinvar_multiwidth_register_scaling/run_scaling_fez.py --hardware --token "<TOKEN>" --crn "<CRN>"
+   -> outputs to 03_algoinvar_multiwidth_register_scaling/results_scaling_fez/hardware_run/
 
 3. Reverification / Offline Re-read (Zero QPU seconds consumed):
-   python Scaled_Experiment/run_scaling_fez.py --job-id "<JOB_ID>" --token "<TOKEN>"
-   -> outputs to Scaled_Experiment/results_scaling_fez/reverification/
+   python 03_algoinvar_multiwidth_register_scaling/run_scaling_fez.py --job-id "<JOB_ID>" --token "<TOKEN>"
+   -> outputs to 03_algoinvar_multiwidth_register_scaling/results_scaling_fez/reverification/
 """
 
 import argparse
