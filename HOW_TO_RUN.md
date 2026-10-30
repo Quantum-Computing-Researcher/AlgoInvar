@@ -19,6 +19,10 @@ pro/                                          <-- REPOSITORY ROOT
 ├── HOW_TO_RUN.md                             # This step-by-step execution guide
 ├── LICENSE.md                                # Licensing terms (CC BY-NC 4.0)
 ├── algoinvar research paper/                 # APS PRX Quantum / RevTeX 4.2 manuscript & bibliography
+│   ├── AlgoInvar Paper for PRXQ 23 pages scaled benchmarking.pdf # Compiled 23-page PDF manuscript
+│   ├── AlgoInvar_paper.tex                   # RevTeX 4.2 source LaTeX manuscript
+│   ├── references.bib                        # Complete bibliography database
+│   └── figures/                              # Publication vector & raster figures
 │
 ├── 01_algoinvar_n4_hardware_baseline/        <-- CAMPAIGN 1: BASELINE (n = 4) & CORE PACKAGE
 │   ├── run_ibm_kingston.py                   # Campaign 1 CLI driver (n=4) for 156Q IBM Kingston
