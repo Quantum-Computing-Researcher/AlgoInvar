@@ -1,0 +1,304 @@
+{
+  "timestamp": "2026-10-29 18:12:49",
+  "backend": "ibm_fez",
+  "mode": "simulation",
+  "qubit_widths": [
+    4,
+    8,
+    12,
+    16,
+    32,
+    64
+  ],
+  "shots_per_circuit": 8192,
+  "results_by_width": {
+    "4": {
+      "num_qubits": 4,
+      "shots_per_circuit": 8192,
+      "simulations": {
+        "noiseless": {
+          "vqe_particle_l2": {
+            "circuit": "vqe_particle_l2",
+            "shots": 8192,
+            "mean_N": 2.0,
+            "var_N": 0.0,
+            "leakage": 0.0,
+            "ideal_N": 2.0,
+            "ideal_var": 0.0,
+            "ideal_leakage": 0.0,
+            "passed": true
+          },
+          "vqe_retrace": {
+            "circuit": "vqe_retrace",
+            "shots": 8192,
+            "return_fidelity": 1.0,
+            "ideal_fidelity": 1.0,
+            "passed": true
+          },
+          "qaoa_parity_p1": {
+            "circuit": "qaoa_parity_p1",
+            "shots": 8192,
+            "global_parity": 1.0,
+            "ideal_parity": 1.0,
+            "passed": true
+          },
+          "qaoa_parity_p2": {
+            "circuit": "qaoa_parity_p2",
+            "shots": 8192,
+            "global_parity": 1.0,
+            "ideal_parity": 1.0,
+            "passed": true
+          },
+          "qaoa_retrace_p2": {
+            "circuit": "qaoa_retrace_p2",
+            "shots": 8192,
+            "retrace_fidelity": 1.0,
+            "ideal_fidelity": 1.0,
+            "passed": true
+          }
+        }
+      },
+      "hardware": null
+    },
+    "8": {
+      "num_qubits": 8,
+      "shots_per_circuit": 8192,
+      "simulations": {
+        "noiseless": {
+          "vqe_particle_l2": {
+            "circuit": "vqe_particle_l2",
+            "shots": 8192,
+            "mean_N": 2.0,
+            "var_N": 0.0,
+            "leakage": 0.0,
+            "ideal_N": 2.0,
+            "ideal_var": 0.0,
+            "ideal_leakage": 0.0,
+            "passed": true
+          },
+          "vqe_retrace": {
+            "circuit": "vqe_retrace",
+            "shots": 8192,
+            "return_fidelity": 1.0,
+            "ideal_fidelity": 1.0,
+            "passed": true
+          },
+          "qaoa_parity_p1": {
+            "circuit": "qaoa_parity_p1",
+            "shots": 8192,
+            "global_parity": 1.0,
+            "ideal_parity": 1.0,
+            "passed": true
+          },
+          "qaoa_parity_p2": {
+            "circuit": "qaoa_parity_p2",
+            "shots": 8192,
+            "global_parity": 1.0,
+            "ideal_parity": 1.0,
+            "passed": true
+          },
+          "qaoa_retrace_p2": {
+            "circuit": "qaoa_retrace_p2",
+            "shots": 8192,
+            "retrace_fidelity": 1.0,
+            "ideal_fidelity": 1.0,
+            "passed": true
+          }
+        }
+      },
+      "hardware": null
+    },
+    "12": {
+      "num_qubits": 12,
+      "shots_per_circuit": 8192,
+      "simulations": {
+        "noiseless": {
+          "vqe_particle_l2": {
+            "circuit": "vqe_particle_l2",
+            "shots": 8192,
+            "mean_N": 2.0,
+            "var_N": 0.0,
+            "leakage": 0.0,
+            "ideal_N": 2.0,
+            "ideal_var": 0.0,
+            "ideal_leakage": 0.0,
+            "passed": true
+          },
+          "vqe_retrace": {
+            "circuit": "vqe_retrace",
+            "shots": 8192,
+            "return_fidelity": 1.0,
+            "ideal_fidelity": 1.0,
+            "passed": true
+          },
+          "qaoa_parity_p1": {
+            "circuit": "qaoa_parity_p1",
+            "shots": 8192,
+            "global_parity": 1.0,
+            "ideal_parity": 1.0,
+            "passed": true
+          },
+          "qaoa_parity_p2": {
+            "circuit": "qaoa_parity_p2",
+            "shots": 8192,
+            "global_parity": 1.0,
+            "ideal_parity": 1.0,
+            "passed": true
+          },
+          "qaoa_retrace_p2": {
+            "circuit": "qaoa_retrace_p2",
+            "shots": 8192,
+            "retrace_fidelity": 1.0,
+            "ideal_fidelity": 1.0,
+            "passed": true
+          }
+        }
+      },
+      "hardware": null
+    },
+    "16": {
+      "num_qubits": 16,
+      "shots_per_circuit": 8192,
+      "simulations": {
+        "noiseless": {
+          "vqe_particle_l2": {
+            "circuit": "vqe_particle_l2",
+            "shots": 8192,
+            "mean_N": 2.0,
+            "var_N": 0.0,
+            "leakage": 0.0,
+            "ideal_N": 2.0,
+            "ideal_var": 0.0,
+            "ideal_leakage": 0.0,
+            "passed": true
+          },
+          "vqe_retrace": {
+            "circuit": "vqe_retrace",
+            "shots": 8192,
+            "return_fidelity": 1.0,
+            "ideal_fidelity": 1.0,
+            "passed": true
+          },
+          "qaoa_parity_p1": {
+            "circuit": "qaoa_parity_p1",
+            "shots": 8192,
+            "global_parity": 1.0,
+            "ideal_parity": 1.0,
+            "passed": true
+          },
+          "qaoa_parity_p2": {
+            "circuit": "qaoa_parity_p2",
+            "shots": 8192,
+            "global_parity": 1.0,
+            "ideal_parity": 1.0,
+            "passed": true
+          },
+          "qaoa_retrace_p2": {
+            "circuit": "qaoa_retrace_p2",
+            "shots": 8192,
+            "retrace_fidelity": 1.0,
+            "ideal_fidelity": 1.0,
+            "passed": true
+          }
+        }
+      },
+      "hardware": null
+    },
+    "32": {
+      "num_qubits": 32,
+      "shots_per_circuit": 8192,
+      "simulations": {
+        "noiseless": {
+          "vqe_particle_l2": {
+            "circuit": "vqe_particle_l2",
+            "shots": 8192,
+            "mean_N": 2.0,
+            "var_N": 0.0,
+            "leakage": 0.0,
+            "ideal_N": 2.0,
+            "ideal_var": 0.0,
+            "ideal_leakage": 0.0,
+            "passed": true
+          },
+          "vqe_retrace": {
+            "circuit": "vqe_retrace",
+            "shots": 8192,
+            "return_fidelity": 1.0,
+            "ideal_fidelity": 1.0,
+            "passed": true
+          },
+          "qaoa_parity_p1": {
+            "circuit": "qaoa_parity_p1",
+            "shots": 8192,
+            "global_parity": 1.0,
+            "ideal_parity": 1.0,
+            "passed": true
+          },
+          "qaoa_parity_p2": {
+            "circuit": "qaoa_parity_p2",
+            "shots": 8192,
+            "global_parity": 1.0,
+            "ideal_parity": 1.0,
+            "passed": true
+          },
+          "qaoa_retrace_p2": {
+            "circuit": "qaoa_retrace_p2",
+            "shots": 8192,
+            "retrace_fidelity": 1.0,
+            "ideal_fidelity": 1.0,
+            "passed": true
+          }
+        }
+      },
+      "hardware": null
+    },
+    "64": {
+      "num_qubits": 64,
+      "shots_per_circuit": 8192,
+      "simulations": {
+        "noiseless": {
+          "vqe_particle_l2": {
+            "circuit": "vqe_particle_l2",
+            "shots": 8192,
+            "mean_N": 2.0,
+            "var_N": 0.0,
+            "leakage": 0.0,
+            "ideal_N": 2.0,
+            "ideal_var": 0.0,
+            "ideal_leakage": 0.0,
+            "passed": true
+          },
+          "vqe_retrace": {
+            "circuit": "vqe_retrace",
+            "shots": 8192,
+            "return_fidelity": 1.0,
+            "ideal_fidelity": 1.0,
+            "passed": true
+          },
+          "qaoa_parity_p1": {
+            "circuit": "qaoa_parity_p1",
+            "shots": 8192,
+            "global_parity": 1.0,
+            "ideal_parity": 1.0,
+            "passed": true
+          },
+          "qaoa_parity_p2": {
+            "circuit": "qaoa_parity_p2",
+            "shots": 8192,
+            "global_parity": 1.0,
+            "ideal_parity": 1.0,
+            "passed": true
+          },
+          "qaoa_retrace_p2": {
+            "circuit": "qaoa_retrace_p2",
+            "shots": 8192,
+            "retrace_fidelity": 1.0,
+            "ideal_fidelity": 1.0,
+            "passed": true
+          }
+        }
+      },
+      "hardware": null
+    }
+  }
+}

@@ -4,9 +4,14 @@ Unit tests for AlgoInvar exact mathematical invariants.
 
 import unittest
 from qiskit_aer import AerSimulator
-from algoinvar.benchmarks.vqe_invariants import run_vqe_particle_benchmark
-from algoinvar.benchmarks.qaoa_invariants import run_qaoa_parity_benchmark, run_qaoa_retrace_benchmark
-from algoinvar.runner import run_suite
+try:
+    from algoinvar_n4_1st_exp.benchmarks.vqe_invariants import run_vqe_particle_benchmark
+    from algoinvar_n4_1st_exp.benchmarks.qaoa_invariants import run_qaoa_parity_benchmark, run_qaoa_retrace_benchmark
+    from algoinvar_n4_1st_exp.runner import run_suite
+except ImportError:
+    from algoinvar.benchmarks.vqe_invariants import run_vqe_particle_benchmark
+    from algoinvar.benchmarks.qaoa_invariants import run_qaoa_parity_benchmark, run_qaoa_retrace_benchmark
+    from algoinvar.runner import run_suite
 
 
 class TestAlgoInvar(unittest.TestCase):

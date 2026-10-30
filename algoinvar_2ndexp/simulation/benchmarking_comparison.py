@@ -108,7 +108,7 @@ def generate_latex_comparison_table(data: List[Dict[str, Any]]) -> str:
 
 
 def run_benchmarking_comparison(
-    output_dir: str = "results/device_calibration"
+    output_dir: str = "."
 ) -> Dict[str, Any]:
     """Saves comparison metrics in JSON, Excel, and LaTeX formats."""
     os.makedirs(output_dir, exist_ok=True)

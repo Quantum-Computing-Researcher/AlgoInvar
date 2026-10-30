@@ -31,7 +31,7 @@ def main():
     t0 = time.time()
     noise_dir = os.path.join(BASE_DIR, "results", "error_injection")
     mitigation_dir = os.path.join(BASE_DIR, "results", "symmetry_mitigation")
-    tax_dir = os.path.join(BASE_DIR, "results", "device_calibration")
+    tax_dir = BASE_DIR
     fig_dir = os.path.join(BASE_DIR, "results", "figures")
     paper_fig_dir = os.path.join(BASE_DIR, "figures")
 

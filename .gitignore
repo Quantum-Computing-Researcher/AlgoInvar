@@ -2,12 +2,8 @@
 # AlgoInvar Git Ignore Configuration
 # ==============================================================================
 
-# --- Unpublished Manuscript & References (Local Only - Pre-arXiv) ---
-AlgoInvar_paper.tex
-references.bib
-paper/
-algoinvar/paper/
-*.bib
+# --- LaTeX Local Compilation Auxiliaries ---
+# (Manuscript and references in 'algoinvar research paper/' are tracked)
 
 # --- Python Bytecode and Caches ---
 __pycache__/
@@ -25,6 +21,8 @@ env.bak/
 venv.bak/
 bin/
 include/
+!cpp/include/
+!cpp/include/*
 lib/
 lib64/
 
