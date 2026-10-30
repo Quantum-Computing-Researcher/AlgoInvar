@@ -8,6 +8,8 @@
 \usepackage{amsmath,amssymb,amsfonts,bm}
 \usepackage{graphicx}
 \graphicspath{{figures/}{./}}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
 \usepackage{hyperref}
 \usepackage{color}
 \usepackage{tikz}
@@ -59,7 +61,7 @@ To overcome these limitations, hardware characterization must transition toward 
 
 In this paper, we introduce \textbf{AlgoInvar}, an invariant-anchored benchmarking framework that evaluates quantum processors by measuring exact mathematical symmetries of algorithmic manifolds (overview in Fig.~\ref{fig:methodology}). Rather than comparing noisy experimental bitstrings against classical simulations, AlgoInvar evaluates: \emph{Does the physical quantum processor conserve the algebraic symmetries dictated by the target algorithm?} Because these invariants are algebraic identities, their theoretical references are exact analytical constants (e.g., $\text{Var}(\hat{N}) \equiv 0$, $\langle \hat{\mathcal{P}} \rangle \equiv +1$) valid for any number of qubits $n$, any circuit depth $p$, and arbitrary variational angles.
 
-We validate these conservation laws experimentally on two independent 156-qubit IBM Heron r2 utility-era processors---\texttt{ibm\_kingston} and \texttt{ibm\_fez}---across two hardware campaigns: (i) an initial $n = 4$ baseline characterization executing $40,960$ physical shots per processor in $13.0$~s of QPU time, and (ii) a multi-width register scaling campaign spanning $n \in \{4, 8, 12, 16, 32, 64\}$ qubits ($245,760$ shots per processor in $69.0$~s and $68.0$~s of QPU time, totaling $573,440$ physical shots across $70$ hardware circuits in $163.0$~s cumulative QPU time), crossing the 50-qubit classical statevector simulation threshold. We further introduce a two-stage compile-time ($t_{\text{submit}}$) versus execution-time ($t_{\text{exec}}$) calibration audit that distinguishes spatial subgraph heterogeneities from temporal cloud-queue calibration drift. The complete protocol requires zero classical statevector simulation ($O(1)$ theoretical reference complexity with linear $O(S \cdot n)$ bitstring post-processing, eliminating exponential $O(2^n)$ classical simulation), establishing a scalable and practical diagnostic suite that complements standardized gate-level benchmarks.
+We validate these conservation laws experimentally on two independent 156-qubit IBM Heron r2 utility-era processors---\texttt{ibm\_kingston} and \texttt{ibm\_fez}---across two hardware campaigns: (i) an initial $n = 4$ baseline characterization executing $40,960$ physical shots per processor in $13.0$~s of QPU time, and (ii) a multi-width register scaling campaign spanning $n \in \{4, 8, 12, 16, 32, 64\}$ qubits ($245,760$ shots per processor in $69.0$~s and $68.0$~s of QPU time, totaling $573,440$ physical shots across $70$ hardware circuits in $163.0$~s cumulative QPU time), crossing the 50-qubit classical statevector simulation threshold. We further introduce a two-stage compile-time ($t_{\text{submit}}$) versus execution-time ($t_{\text{exec}}$) calibration audit that distinguishes spatial subgraph heterogeneities from temporal cloud-queue calibration drift. The complete protocol is formalized as an end-to-end, linear-time procedure (Algorithm~\ref{alg:algoinvar}) requiring zero classical statevector simulation ($O(1)$ theoretical reference complexity with linear $O(S \cdot n)$ bitstring post-processing, eliminating exponential $O(2^n)$ classical simulation), establishing a scalable and practical diagnostic suite that complements standardized gate-level benchmarks.
 
 % ==============================================================================
 % TIKZ FIGURE 1: METHODOLOGY & WORKFLOW ARCHITECTURE (FULL-PAGE DEDICATED)
@@ -474,6 +476,47 @@ F_{\text{echo}}^{\text{QAOA}} = \frac{C(|0000\rangle)}{S}.
 \end{equation}
 
 In an ideal, noiseless system, $U^\dagger U \equiv I$ identically, yielding $F_{\text{echo}} \equiv 1.0$ for all parameter angles. On noisy physical hardware, $F_{\text{echo}}$ decays due to accumulated gate infidelities, environmental decoherence ($T_1, T_2$), and coherent angle over-rotations. In our implementation, forward and inverse unitaries are transpiled through Qiskit's ISA transpiler without peephole cancellation of $U U^\dagger$. We note that while in-manifold coherent angle errors preserve particle number $\hat{N}$ strictly in the forward circuit ($\text{Var}(\hat{N}) \equiv 0$), echo fidelity reflects the cumulative effect of both coherent drifts and dissipative decay. Furthermore, if calibration errors are correlated between forward and inverse gates, partial coherent error cancellation can occur, potentially causing $F_{\text{echo}}$ to over-estimate circuit survival probabilities under systematic over-rotations. To decouple these symmetric echo-refocusing effects in practical characterization campaigns, the AlgoInvar framework can be natively paired with randomized compiling (RC) or Pauli twirling across the forward-inverse boundary~\cite{Wallman2016,Cai2019}. Interleaving random Pauli gates shifts systematic coherent accumulation into stochastic channels, ensuring that $F_{\text{echo}}$ reflects unmitigated structural drifts rather than accidental symmetric cancellation. Therefore, $F_{\text{echo}}$ serves as a composite benchmark of round-trip unitary preservation rather than an isolated coherent-error diagnostic.
+
+\subsection{The AlgoInvar Benchmarking Protocol}
+The operational execution of the AlgoInvar framework is summarized in Algorithm~\ref{alg:algoinvar}. The protocol requires zero classical statevector simulation, operating strictly via exact algebraic reference targets ($\langle \hat{N} \rangle \equiv N_e$, $\text{Var}(\hat{N}) \equiv 0$, and $\langle \hat{\mathcal{P}} \rangle \equiv +1$) and linear-time $O(S \cdot n)$ single-pass bitwise accumulation over $S$ measurement shots. By acquiring both forward and echo distributions and coupling in-sector confinement with directional asymmetry $R_{\text{asym}}$ and in situ spectator deconvolution, AlgoInvar simultaneously evaluates unitary gate preservation, isolates dissipative relaxation from spectator dark counts, and restores true active-manifold fidelity across utility-scale quantum processors.
+
+\begin{algorithm}[t]
+\caption{AlgoInvar In Situ Benchmarking and Diagnostic Protocol}
+\label{alg:algoinvar}
+\begin{algorithmic}[1]
+\Require Hardware backend $\mathcal{Q}$, register width $n$, circuit class $\mathcal{C} \in \{\text{VQE}, \text{QAOA}\}$, parameter vector $\vec{\theta}$, shot budget $S$.
+\Ensure Invariant observable $\langle \hat{\mathcal{I}} \rangle$, variance $\text{Var}(\hat{\mathcal{I}})$, echo fidelity $F_{\text{echo}}$, directional asymmetry ratio $R_{\text{asym}}$, and active-manifold fidelity $P_{\text{act}}$.
+\Statex \textit{// 1. Dual-Branch Circuit Compilation}
+\State Construct forward circuit $\mathcal{C}_{\text{fwd}} \gets U(\vec{\theta})$
+\State Construct echo circuit $\mathcal{C}_{\text{echo}} \gets U^\dagger(\vec{\theta}) \mathcal{T} U(\vec{\theta})$ \Comment{$\mathcal{T} = I$ or Pauli twirling}
+\Statex \textit{// 2. Physical Hardware Sampling}
+\State Transpile $\mathcal{C}_{\text{fwd}}$ and $\mathcal{C}_{\text{echo}}$ to native ISA of $\mathcal{Q}$
+\State Execute on $\mathcal{Q}$ with $S$ shots; acquire bitstrings $\mathcal{M}_{\text{fwd}}, \mathcal{M}_{\text{echo}} \subset \{0, 1\}^n$
+\Statex \textit{// 3. Linear-Time Bitwise Post-Processing ($O(S \cdot n)$)}
+\For{each measured bitstring $b^{(s)} \in \mathcal{M}_{\text{fwd}}$}
+    \State Compute Hamming weight $w(b^{(s)}) \gets \sum_{j=1}^n b_j^{(s)}$
+\EndFor
+\If{$\mathcal{C} = \text{VQE}$} \Comment{Fermionic particle-number conservation}
+    \State $\langle \hat{N} \rangle \gets \frac{1}{S}\sum_{s=1}^S w(b^{(s)})$
+    \State $\text{Var}(\hat{N}) \gets \frac{1}{S}\sum_{s=1}^S (w(b^{(s)}) - \langle \hat{N} \rangle)^2$
+    \State $P(w = N_e) \gets \frac{1}{S} \sum_{s=1}^S \mathbb{I}[w(b^{(s)}) = N_e]$
+    \State $R_{\text{asym}} \gets \frac{\sum_{s} \mathbb{I}[w(b^{(s)}) < N_e]}{\sum_{s} \mathbb{I}[w(b^{(s)}) > N_e]}$ \Comment{$T_1$ loss vs.\ heating/crosstalk}
+    \State $F_{\text{echo}} \gets \frac{1}{S}\sum_{s=1}^S \mathbb{I}[b_{\text{echo}}^{(s)} = |110^{\otimes(n-2)}\rangle]$
+\ElsIf{$\mathcal{C} = \text{QAOA}$} \Comment{Global $\mathbb{Z}_2$ parity conservation}
+    \State $\langle \hat{\mathcal{P}} \rangle \gets \frac{1}{S}\sum_{s=1}^S (-1)^{w(b^{(s)})}$
+    \State $F_{\text{echo}} \gets \frac{1}{S}\sum_{s=1}^S \mathbb{I}[b_{\text{echo}}^{(s)} = |0^{\otimes n}\rangle]$
+\EndIf
+\Statex \textit{// 4. In Situ Spectator Deconvolution ($n > n_{\text{act}}$)}
+\If{$n > n_{\text{act}}$}
+    \State Estimate spectator rate $\hat{\varepsilon}_{0\to 1} \gets \frac{1}{n - n_{\text{act}}} \langle \hat{N}_{\text{spec}} \rangle$
+    \State Invert spectator corruption matrix $\mathbf{\Lambda}_{\text{spec}}$
+    \State $P_{\text{act}}(w = N_e) \gets [\mathbf{\Lambda}_{\text{spec}}^{-1} \vec{P}]_{(w=N_e)}$
+\Else
+    \State $P_{\text{act}}(w = N_e) \gets P(w = N_e)$
+\EndIf
+\State \Return $\langle \hat{\mathcal{I}} \rangle, \text{Var}(\hat{\mathcal{I}}), F_{\text{echo}}, R_{\text{asym}}, P_{\text{act}}$
+\end{algorithmic}
+\end{algorithm}
 
 % ==============================================================================
 % SECTION III: PHYSICAL HARDWARE EXPERIMENTS ON IBM HERON
