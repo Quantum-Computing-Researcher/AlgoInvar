@@ -480,7 +480,7 @@ In an ideal, noiseless system, $U^\dagger U \equiv I$ identically, yielding $F_{
 \subsection{The AlgoInvar Benchmarking Protocol}
 The operational execution of the AlgoInvar framework is summarized in Algorithm~\ref{alg:algoinvar}. The protocol requires zero classical statevector simulation, operating strictly via exact algebraic reference targets ($\langle \hat{N} \rangle \equiv N_e$, $\text{Var}(\hat{N}) \equiv 0$, and $\langle \hat{\mathcal{P}} \rangle \equiv +1$) and linear-time $O(S \cdot n)$ single-pass bitwise accumulation over $S$ measurement shots. By acquiring both forward and echo distributions and coupling in-sector confinement with directional asymmetry $R_{\text{asym}}$ and in situ spectator deconvolution, AlgoInvar simultaneously evaluates unitary gate preservation, isolates dissipative relaxation from spectator dark counts, and restores true active-manifold fidelity across utility-scale quantum processors.
 
-\begin{algorithm}[t]
+\begin{algorithm}[H]
 \caption{AlgoInvar In Situ Benchmarking and Diagnostic Protocol}
 \label{alg:algoinvar}
 \begin{algorithmic}[1]
