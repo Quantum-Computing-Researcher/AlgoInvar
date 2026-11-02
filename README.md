@@ -1,6 +1,6 @@
 # AlgoInvar: Simulation-Free Benchmarking of Quantum Hardware via Exact Algorithmic Invariants in VQE and QAOA
 
-[<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.23627340.svg" height="20" alt="DOI: 10.5281/zenodo.23627340">](https://doi.org/10.5281/zenodo.23627340) [<img src="https://img.shields.io/badge/Manuscript-PRX%20Quantum%20LaTeX-red.svg" height="20" alt="Manuscript: PRX Quantum">](algoinvar%20research%20paper/AlgoInvar_paper.tex) [<img src="https://img.shields.io/badge/Guide-How%20To%20Run-teal.svg" height="20" alt="Guide: How To Run">](HOW_TO_RUN.md) [<img src="https://img.shields.io/badge/Scaling%20Suite-n%3D4..64-purple.svg" height="20" alt="Scaling Suite: n=4..64">](03_algoinvar_multiwidth_register_scaling/HOW_TO_RUN_SCALING.md) [<img src="https://img.shields.io/badge/License-CC%20BY--NC%204.0-blue.svg" height="20" alt="License: CC BY-NC 4.0">](LICENSE.md) [<img src="https://img.shields.io/badge/Python-3.9+-green.svg" height="20" alt="Python 3.9+">](https://www.python.org/downloads/) [<img src="https://img.shields.io/badge/Qiskit-1.0+-613394.svg" height="20" alt="Qiskit 1.0+">](https://qiskit.org/)
+[<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.23627339.svg" height="20" alt="DOI: 10.5281/zenodo.23627339">](https://doi.org/10.5281/zenodo.23627339) [<img src="https://img.shields.io/badge/Manuscript-PRX%20Quantum%20LaTeX-red.svg" height="20" alt="Manuscript: PRX Quantum">](algoinvar%20research%20paper/AlgoInvar_paper.tex) [<img src="https://img.shields.io/badge/Guide-How%20To%20Run-teal.svg" height="20" alt="Guide: How To Run">](HOW_TO_RUN.md) [<img src="https://img.shields.io/badge/Scaling%20Suite-n%3D4..64-purple.svg" height="20" alt="Scaling Suite: n=4..64">](03_algoinvar_multiwidth_register_scaling/HOW_TO_RUN_SCALING.md) [<img src="https://img.shields.io/badge/License-CC%20BY--NC%204.0-blue.svg" height="20" alt="License: CC BY-NC 4.0">](LICENSE.md) [<img src="https://img.shields.io/badge/Python-3.9+-green.svg" height="20" alt="Python 3.9+">](https://www.python.org/downloads/) [<img src="https://img.shields.io/badge/Qiskit-1.0+-613394.svg" height="20" alt="Qiskit 1.0+">](https://qiskit.org/)
 
 > 📖 **Quick Start:** For step-by-step installation, Python API usage, IBM hardware execution, multi-width register scaling ($n = 4 \to 64$), and Experiment 2 reproduction guides, see [**HOW_TO_RUN.md**](HOW_TO_RUN.md) and [**03_algoinvar_multiwidth_register_scaling/HOW_TO_RUN_SCALING.md**](03_algoinvar_multiwidth_register_scaling/HOW_TO_RUN_SCALING.md). The manuscript source is in [`algoinvar research paper/`](algoinvar%20research%20paper/AlgoInvar_paper.tex)., Python API usage, IBM hardware execution, multi-width register scaling ($n = 4 \to 64$), and Experiment 2 reproduction guides, see [**HOW_TO_RUN.md**](HOW_TO_RUN.md) and [**03_algoinvar_multiwidth_register_scaling/HOW_TO_RUN_SCALING.md**](03_algoinvar_multiwidth_register_scaling/HOW_TO_RUN_SCALING.md).
 
@@ -189,15 +189,15 @@ g++ -O3 -std=c++17 src/main.cpp src/algoinvar_fast.cpp -o algoinvar_bench
 
 If you use AlgoInvar in your research, please cite:
 
-* **Permanent DOI:** [https://doi.org/10.5281/zenodo.23627340](https://doi.org/10.5281/zenodo.23627340)
+* **Permanent DOI:** [https://doi.org/10.5281/zenodo.23627339](https://doi.org/10.5281/zenodo.23627339)
 
 ```bibtex
 @article{arqam2026algoinvar,
   title   = {AlgoInvar: Simulation-Free Benchmarking of Quantum Hardware via Exact Algorithmic Invariants in VQE and QAOA},
   author  = {Arqam, Rehan},
   year    = {2026},
-  doi     = {10.5281/zenodo.23627340},
-  url     = {https://doi.org/10.5281/zenodo.23627340},
+  doi     = {10.5281/zenodo.23627339},
+  url     = {https://doi.org/10.5281/zenodo.23627339},
   note    = {Independent Researcher, Islamabad, 44000, Pakistan}
 }
 ```
