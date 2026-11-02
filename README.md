@@ -203,11 +203,17 @@ If you use AlgoInvar in your research, please cite:
 ```
 
 ### Licensing Terms
-* **Academic & Non-Commercial Research:** Distributed under the **[Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](LICENSE.md)** license.
 
-### Important Hardware & Commercial Use Notice
-The underlying source code logic and algorithms contained within this document are restricted. Creative Commons (CC BY-NC 4.0) governs text/data copyright but does not grant patent or hardware rights. 
+The AlgoInvar framework, research code, and preprint materials are governed by the comprehensive dual-license terms detailed in [**LICENSE.md**](LICENSE.md):
 
-Any integration, copying, or compilation of the software code, logic, or algorithms described in this "AlgoInvar Code Repository and PDF (Research Paper/Preprint)" into physical hardware devices, integrated circuits, corporate testbeds, or proprietary firmware by any commercial organization or for-profit entity is strictly prohibited. For commercial or hardware licensing arrangements, please contact the corresponding author at: rarqam14@gmail.com.
+#### 1. Academic & Non-Commercial Research
+Distributed under the **[Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](LICENSE.md)** license, applicable solely and exclusively to bona fide individual researchers, students, and non-profit academic institutions conducting non-commercial scientific research.
 
-* **Licensing Inquiries:** Contact **Rehan Arqam** (`+92 324 7707711 or rarqam14@gmail.com`).
+#### 2. Important Hardware & Commercial Use Notice (Strict Corporate Exclusion)
+The underlying source code logic, mathematical invariants, and algorithms contained within this work are restricted. Creative Commons (CC BY-NC 4.0) governs text/data copyright only and **does not grant patent, functional implementation, or hardware deployment rights** (see CC BY-NC 4.0 Section 2(b)(2)).
+
+**No license—express, implied, by estoppel, or otherwise—is granted to any for-profit corporation, company, startup, or commercial enterprise (large or small) to execute, test, evaluate, or implement the functional logic, algorithmic invariants, calibration protocols, or circuit architectures of AlgoInvar.**
+
+Any integration, copying, compilation, testing, or execution of the software code, logic, or algorithms described in this "AlgoInvar Code Repository and PDF (Research Paper/Preprint)" into physical hardware devices, integrated circuits, corporate testbeds, automated qubit calibration stacks, compiler toolchains, cloud quantum platforms (such as IBM Quantum, AWS Braket, Microsoft Azure Quantum, Google Quantum AI, Rigetti Computing, IonQ, Quantinuum), or proprietary firmware by any commercial organization or for-profit entity is strictly prohibited.
+
+* **Commercial Licensing & Enterprise Inquiries:** Contact **Rehan Arqam** (`+92 324 7707711` or `rarqam14@gmail.com`).

@@ -17,7 +17,7 @@ pro/                                          <-- REPOSITORY ROOT
 ├── algoinvar.py                              # Root package bridge for modular namespace resolution
 ├── README.md                                 # Master project documentation & empirical summary
 ├── HOW_TO_RUN.md                             # This step-by-step execution guide
-├── LICENSE.md                                # Licensing terms (CC BY-NC 4.0)
+├── LICENSE.md                                # Licensing terms (CC BY-NC 4.0 & Commercial Hardware License)
 ├── algoinvar research paper/                 # APS PRX Quantum / RevTeX 4.2 manuscript & bibliography
 │   ├── AlgoInvar_paper.tex                   # RevTeX 4.2 source LaTeX manuscript
 │   ├── references.bib                        # Complete bibliography database
