@@ -208,6 +208,6 @@ If you use AlgoInvar in your research, please cite:
 ### Important Hardware & Commercial Use Notice
 The underlying source code logic and algorithms contained within this document are restricted. Creative Commons (CC BY-NC 4.0) governs text/data copyright but does not grant patent or hardware rights. 
 
-Any integration, copying, or compilation of the software code, logic, or algorithms described in this PDF into physical hardware devices, integrated circuits, corporate testbeds, or proprietary firmware by any commercial organization or for-profit entity is strictly prohibited. For commercial or hardware licensing arrangements, please contact the corresponding author at: rarqam14@gmail.com.
+Any integration, copying, or compilation of the software code, logic, or algorithms described in this "AlgoInvar Code Repository and PDF (Research Paper/Preprint)" into physical hardware devices, integrated circuits, corporate testbeds, or proprietary firmware by any commercial organization or for-profit entity is strictly prohibited. For commercial or hardware licensing arrangements, please contact the corresponding author at: rarqam14@gmail.com.
 
-* **Alternative Licensing Inquiries:** Contact **Rehan Arqam** (`rarqam14@gmail.com`).
+* **Licensing Inquiries:** Contact **Rehan Arqam** (`+92 324 7707711 or rarqam14@gmail.com`).
